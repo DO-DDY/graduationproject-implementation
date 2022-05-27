@@ -65,7 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
           return ("password is required for login");
         }
         if (!regex.hasMatch(value)) {
-          return ("Enter Valid Password(Min. 6 Character)");
+          return ("Please Enter Valid Password(Min. 6 Character)");
         }
       },
       onSaved: (value) {
