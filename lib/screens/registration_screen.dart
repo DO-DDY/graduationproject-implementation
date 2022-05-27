@@ -143,6 +143,19 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back,
+              color: Constant.color,
+            ),
+            onPressed: () {
+              // passing this to our root
+              Navigator.of(context).pop();
+            }),
+      ),
       body: Center(
         child: SingleChildScrollView(
           child: Container(
