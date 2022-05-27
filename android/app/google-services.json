@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "154269587822",
+    "project_id": "gproject-implementation",
+    "storage_bucket": "gproject-implementation.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154269587822:android:ab3fccf95af5f9c0b9c97f",
+        "android_client_info": {
+          "package_name": "com.example.graduationprojectyarb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "154269587822-sd2amq5ivhf5eb23lkhp74sfbp8cqa5o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.graduationprojectyarb",
+            "certificate_hash": "6531735097b5f09203158aa3d1fa76f53b968a1b"
+          }
+        },
+        {
+          "client_id": "154269587822-ol96pb5ev2ee02sa0u1sr7dejg80h5e4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmHhdnacSN3gZrs3Xgxpjg3_3lIZZWVWQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "154269587822-ol96pb5ev2ee02sa0u1sr7dejg80h5e4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
