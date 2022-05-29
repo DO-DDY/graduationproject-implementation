@@ -91,7 +91,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           return ("Please Enter Your Email");
         }
         //reg expression for email validation
-        if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]").hasMatch(value)) {
+        if (!RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}').hasMatch(value)) {
           return ("Please Enter a valid email");
         }
         return null;
