@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:graduationprojectyarb/model/user_model.dart';
+import 'package:graduationprojectyarb/screens/Grades_screen.dart';
 import 'package:graduationprojectyarb/screens/login_screen.dart';
 
 import '../config/constant.dart';
@@ -93,6 +94,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(12),
                       child: InkWell(
                         onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => GradeTable(),
+                            ),
+                          );
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
                               content: Text('left'),
