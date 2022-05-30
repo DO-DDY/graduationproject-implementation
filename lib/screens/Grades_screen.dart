@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import '../config/constant.dart';
 import '../model/user_model.dart';
 
 class GradesScreen extends StatefulWidget {
@@ -49,33 +50,33 @@ class _GradesScreenState extends State<GradesScreen> {
                 rows: [
                   DataRow(cells: [
                     DataCell(Text('english')),
-                    DataCell(Text('${Grade_score(loggedInUser.english)}')),
+                    DataCell(Text('${gradeChecker(loggedInUser.english)}')),
                     DataCell(Text('${loggedInUser.english}')),
                   ]),
                   DataRow(cells: [
                     DataCell(Text('MC')),
-                    DataCell(Text('${Grade_score(loggedInUser.mc)}')),
+                    DataCell(Text('${gradeChecker(loggedInUser.mc)}')),
                     DataCell(Text('${loggedInUser.mc}')),
                   ]),
                   DataRow(cells: [
                     DataCell(Text('DSS')),
-                    DataCell(Text('${Grade_score(loggedInUser.dss)}')),
+                    DataCell(Text('${gradeChecker(loggedInUser.dss)}')),
                     DataCell(Text('${loggedInUser.dss}')),
                   ]),
                   DataRow(cells: [
                     DataCell(Text('GIS')),
-                    DataCell(Text('${Grade_score(loggedInUser.gis)}')),
+                    DataCell(Text('${gradeChecker(loggedInUser.gis)}')),
                     DataCell(Text('${loggedInUser.gis}')),
                   ]),
                   DataRow(cells: [
                     DataCell(Text('IT')),
                     DataCell(Text(
-                        '${Grade_score(loggedInUser.it_project_management)}')),
+                        '${gradeChecker(loggedInUser.it_project_management)}')),
                     DataCell(Text('${loggedInUser.it_project_management}')),
                   ]),
                   DataRow(cells: [
                     DataCell(Text('Data mining')),
-                    DataCell(Text('${Grade_score(loggedInUser.data_mining)}')),
+                    DataCell(Text('${gradeChecker(loggedInUser.data_mining)}')),
                     DataCell(Text('${loggedInUser.data_mining}')),
                   ]),
                 ],
@@ -88,21 +89,36 @@ class _GradesScreenState extends State<GradesScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 ActionChip(
+                  avatar: CircleAvatar(backgroundColor: Constant.color),
                   padding: EdgeInsets.all(5),
                   label: Text("semester 1"),
                   onPressed: () {},
                 ),
+                SizedBox(
+                  width: 45,
+                ),
                 ActionChip(
+                  avatar: CircleAvatar(backgroundColor: Constant.color),
                   padding: EdgeInsets.all(5),
                   label: Text("semester 2"),
                   onPressed: () {},
                 ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
                 ActionChip(
+                  avatar: CircleAvatar(backgroundColor: Constant.color),
                   padding: EdgeInsets.all(5),
                   label: Text("semester 3"),
                   onPressed: () {},
                 ),
+                SizedBox(
+                  width: 45,
+                ),
                 ActionChip(
+                  avatar: CircleAvatar(backgroundColor: Constant.color),
                   padding: EdgeInsets.all(5),
                   label: Text("semester 4"),
                   onPressed: () {},
@@ -113,27 +129,42 @@ class _GradesScreenState extends State<GradesScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 ActionChip(
+                  avatar: CircleAvatar(backgroundColor: Constant.color),
                   padding: EdgeInsets.all(5),
                   label: Text("semester 5"),
                   onPressed: () {},
                 ),
+                SizedBox(
+                  width: 45,
+                ),
                 ActionChip(
+                  avatar: CircleAvatar(backgroundColor: Constant.color),
                   padding: EdgeInsets.all(5),
                   label: Text("semester 6"),
                   onPressed: () {},
                 ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
                 ActionChip(
+                  avatar: CircleAvatar(backgroundColor: Constant.color),
                   padding: EdgeInsets.all(5),
                   label: Text("semester 7"),
                   onPressed: () {},
                 ),
+                SizedBox(
+                  width: 45,
+                ),
                 ActionChip(
+                  avatar: CircleAvatar(backgroundColor: Constant.color),
                   padding: EdgeInsets.all(5),
                   label: Text("semester 8"),
                   onPressed: () {},
                 ),
               ],
-            ),
+            )
           ],
         ),
       ),
@@ -141,19 +172,18 @@ class _GradesScreenState extends State<GradesScreen> {
   }
 }
 
-Grade_score(input) {
-  if (double.parse(input) > 95) {
+gradeChecker(input) {
+  if (double.tryParse(input)! < 100 && double.tryParse(input)! > 95) {
     return "A";
-  } else if (double.parse(input) < 95 && double.parse(input) > 85) {
+  } else if (double.tryParse(input)! < 95 && double.tryParse(input)! > 85) {
     return "B";
-  } else if (double.parse(input) < 85 && double.parse(input) > 75) {
+  } else if (double.tryParse(input)! < 85 && double.tryParse(input)! > 75) {
     return "C";
-  } else if (double.parse(input) < 75 && double.parse(input) > 65) {
+  } else if (double.tryParse(input)! < 75 && double.tryParse(input)! > 65) {
     return "D";
-  } else if (double.parse(input) < 65 && double.parse(input) > 50) {
+  } else if (double.tryParse(input)! < 65 && double.tryParse(input)! > 50) {
     return "E";
-  } else if (double.parse(input) < 50) {
+  } else if (double.tryParse(input)! < 50) {
     return "F";
-  } else
-    return null;
+  }
 }

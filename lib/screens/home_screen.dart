@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Padding(
             padding: EdgeInsets.all(20),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 SizedBox(
@@ -79,6 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 15,
                 ),
                 ActionChip(
+                  avatar: CircleAvatar(backgroundColor: Colors.red),
                   label: Text("Logout"),
                   onPressed: () {
                     logout(context);
