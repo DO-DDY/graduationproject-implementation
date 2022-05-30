@@ -100,11 +100,6 @@ class _HomeScreenState extends State<HomeScreen> {
                               builder: (context) => GradesScreen(),
                             ),
                           );
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('left'),
-                            ),
-                          );
                         },
                         child: Container(
                           height: 80,
@@ -123,13 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(12),
                       child: InkWell(
-                        onTap: () {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('middle'),
-                            ),
-                          );
-                        },
+                        onTap: () {},
                         child: Container(
                           height: 80,
                           color: Colors.white,
