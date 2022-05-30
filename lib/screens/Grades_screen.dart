@@ -1,13 +1,33 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class GradeTable extends StatefulWidget {
-  const GradeTable({Key? key}) : super(key: key);
+import '../model/user_model.dart';
+
+class GradesScreen extends StatefulWidget {
+  const GradesScreen({Key? key}) : super(key: key);
 
   @override
-  State<GradeTable> createState() => _GradeTableState();
+  _GradesScreenState createState() => _GradesScreenState();
 }
 
-class _GradeTableState extends State<GradeTable> {
+class _GradesScreenState extends State<GradesScreen> {
+  User? user = FirebaseAuth.instance.currentUser;
+  UserModel loggedInUser = UserModel();
+
+  @override
+  void initState() {
+    super.initState();
+    FirebaseFirestore.instance
+        .collection("users")
+        .doc(user!.uid)
+        .get()
+        .then((value) {
+      this.loggedInUser = UserModel.fromMap(value.data());
+      setState(() {});
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,19 +47,34 @@ class _GradeTableState extends State<GradeTable> {
               ],
               rows: [
                 DataRow(cells: [
-                  DataCell(Text('IT')),
-                  DataCell(Text('A+')),
-                  DataCell(Text('200')),
+                  DataCell(Text('english')),
+                  DataCell(Text('${Grade_score(loggedInUser.english)}')),
+                  DataCell(Text('${loggedInUser.english}')),
                 ]),
                 DataRow(cells: [
-                  DataCell(Text('English')),
+                  DataCell(Text('MC')),
                   DataCell(Text('A')),
-                  DataCell(Text('150')),
+                  DataCell(Text('${loggedInUser.mc}')),
                 ]),
                 DataRow(cells: [
                   DataCell(Text('DSS')),
                   DataCell(Text('B')),
-                  DataCell(Text('120')),
+                  DataCell(Text('${loggedInUser.dss}')),
+                ]),
+                DataRow(cells: [
+                  DataCell(Text('GIS')),
+                  DataCell(Text('B')),
+                  DataCell(Text('${loggedInUser.gis}')),
+                ]),
+                DataRow(cells: [
+                  DataCell(Text('it project management')),
+                  DataCell(Text('B')),
+                  DataCell(Text('${loggedInUser.it_project_management}')),
+                ]),
+                DataRow(cells: [
+                  DataCell(Text('Data mining')),
+                  DataCell(Text('B')),
+                  DataCell(Text('${loggedInUser.data_mining}')),
                 ]),
               ],
             ),
@@ -47,5 +82,16 @@ class _GradeTableState extends State<GradeTable> {
         ],
       ),
     );
+  }
+
+  Future<void> Grade_score(input) async {
+    await input;
+    if (double.tryParse(input)! < 50) {
+      const Text('F');
+    } else if (double.tryParse(input)! < 75) {
+      print("B");
+    } else {
+      print("");
+    }
   }
 }
