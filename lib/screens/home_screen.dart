@@ -102,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           );
                         },
-                        child: Container(
+                        child: Ink(
                           height: 80,
                           color: Constant.color,
                           padding: EdgeInsets.all(20),
@@ -120,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(12),
                       child: InkWell(
                         onTap: () {},
-                        child: Container(
+                        child: Ink(
                           height: 80,
                           color: Colors.white,
                           padding: EdgeInsets.all(20),
@@ -137,14 +137,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(12),
                       child: InkWell(
-                        onTap: () {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('last right'),
-                            ),
-                          );
-                        },
-                        child: Container(
+                        onTap: () {},
+                        child: Ink(
                           height: 80,
                           color: Constant.color,
                           padding: EdgeInsets.all(20),
