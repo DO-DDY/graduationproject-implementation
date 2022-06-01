@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:graduationprojectyarb/model/user_model.dart';
+import 'package:graduationprojectyarb/screens/Grades_screen.dart';
 import 'package:graduationprojectyarb/screens/login_screen.dart';
 
 import '../config/constant.dart';
@@ -43,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Padding(
             padding: EdgeInsets.all(20),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 SizedBox(
@@ -78,6 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 15,
                 ),
                 ActionChip(
+                  avatar: CircleAvatar(backgroundColor: Colors.red),
                   label: Text("Logout"),
                   onPressed: () {
                     logout(context);
@@ -93,13 +95,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(12),
                       child: InkWell(
                         onTap: () {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('left'),
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => GradesScreen(),
                             ),
                           );
                         },
-                        child: Container(
+                        child: Ink(
                           height: 80,
                           color: Constant.color,
                           padding: EdgeInsets.all(20),
@@ -116,14 +119,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(12),
                       child: InkWell(
-                        onTap: () {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('middle'),
-                            ),
-                          );
-                        },
-                        child: Container(
+                        onTap: () {},
+                        child: Ink(
                           height: 80,
                           color: Colors.white,
                           padding: EdgeInsets.all(20),
@@ -140,14 +137,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(12),
                       child: InkWell(
-                        onTap: () {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('last right'),
-                            ),
-                          );
-                        },
-                        child: Container(
+                        onTap: () {},
+                        child: Ink(
                           height: 80,
                           color: Constant.color,
                           padding: EdgeInsets.all(20),
