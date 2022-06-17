@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:graduationprojectyarb/model/user_model.dart';
 import 'package:graduationprojectyarb/screens/Grades_screen.dart';
+import 'package:graduationprojectyarb/screens/Level_Up.dart';
 import 'package:graduationprojectyarb/screens/login_screen.dart';
 
 import '../config/constant.dart';
@@ -138,9 +139,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(12),
                       child: InkWell(
                         onTap: () {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('last right'),
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LevelUp(),
                             ),
                           );
                         },
