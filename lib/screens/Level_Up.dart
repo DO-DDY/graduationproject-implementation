@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:graduationprojectyarb/screens/config/storage_service.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
+
+import '../config/constant.dart';
 
 class LevelUp extends StatefulWidget {
   const LevelUp({Key? key}) : super(key: key);
@@ -20,6 +23,7 @@ class _LevelUpState extends State<LevelUp> {
         title: Text('Schedule'),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           FutureBuilder(
             future: storage.downloadURL('gdwal.jpg'),
@@ -35,20 +39,15 @@ class _LevelUpState extends State<LevelUp> {
               }
               if (snapshot.connectionState == ConnectionState.waiting ||
                   !snapshot.hasData) {
-                return Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: 750,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 50,
-                        height: 50,
-                        child: CircularProgressIndicator(),
-                      )
-                    ],
-                  ),
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      child: CircularProgressIndicator(
+                        color: Constant.color,
+                      ),
+                    ),
+                  ],
                 );
               }
               return Container();
