@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:graduationprojectyarb/model/user_model.dart';
 import 'package:graduationprojectyarb/screens/Grades_screen.dart';
+import 'package:graduationprojectyarb/screens/Level_Up.dart';
 import 'package:graduationprojectyarb/screens/login_screen.dart';
 
 import '../config/constant.dart';
@@ -137,8 +138,15 @@ class _HomeScreenState extends State<HomeScreen> {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(12),
                       child: InkWell(
-                        onTap: () {},
-                        child: Ink(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LevelUp(),
+                            ),
+                          );
+                        },
+                        child: Container(
                           height: 80,
                           color: Constant.color,
                           padding: EdgeInsets.all(20),
