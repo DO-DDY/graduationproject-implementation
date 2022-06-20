@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:graduationprojectyarb/screens/config/storage_service.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
 
 import '../config/constant.dart';
 
