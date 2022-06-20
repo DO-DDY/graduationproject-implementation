@@ -120,24 +120,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(12),
                       child: InkWell(
-                        onTap: () {},
-                        child: Ink(
-                          height: 80,
-                          color: Colors.white,
-                          padding: EdgeInsets.all(20),
-                          child: Image.asset(
-                            "assets/wallet.png",
-                            color: Constant.color,
-                          ),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 25,
-                    ),
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
-                      child: InkWell(
                         onTap: () {
                           Navigator.push(
                             context,
