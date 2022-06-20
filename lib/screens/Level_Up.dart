@@ -22,23 +22,38 @@ class _LevelUpState extends State<LevelUp> {
       body: Column(
         children: [
           FutureBuilder(
-              future: storage.downloadURL('gdwal.jpg'),
-              builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-                if (snapshot.connectionState == ConnectionState.done &&
-                    snapshot.hasData) {
-                  return Container(
-                    height: MediaQuery.of(context).size.height / 1.3,
-                    child: Image.network(
-                      snapshot.data!,
-                    ),
-                  );
-                }
-                if (snapshot.connectionState == ConnectionState.waiting ||
-                    !snapshot.hasData) {
-                  return CircularProgressIndicator();
-                }
-                return Container();
-              })
+            future: storage.downloadURL('gdwal.jpg'),
+            builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+              if (snapshot.connectionState == ConnectionState.done &&
+                  snapshot.hasData) {
+                return Container(
+                  height: MediaQuery.of(context).size.height / 1.3,
+                  child: Image.network(
+                    snapshot.data!,
+                  ),
+                );
+              }
+              if (snapshot.connectionState == ConnectionState.waiting ||
+                  !snapshot.hasData) {
+                return Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 750,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 50,
+                        height: 50,
+                        child: CircularProgressIndicator(),
+                      )
+                    ],
+                  ),
+                );
+              }
+              return Container();
+            },
+          )
         ],
       ),
     );
