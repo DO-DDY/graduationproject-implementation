@@ -138,19 +138,17 @@ class _CheckerState extends State<Checker> {
     );
 
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text("choose your Subjects"),
+      ),
       body: SafeArea(
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
-                height: 100,
-                child: Image.asset("assets/logo.png", fit: BoxFit.contain),
-              ),
-              SizedBox(
-                height: 30,
-              ),
               Container(
+                height: 55,
                 width: MediaQuery.of(context).size.width * 0.90,
                 child: DropdownButtonFormField<String>(
                   decoration: InputDecoration(
@@ -163,14 +161,15 @@ class _CheckerState extends State<Checker> {
                   items: items
                       .map((item) => DropdownMenuItem<String>(
                             value: item,
-                            child: Text(item, style: TextStyle(fontSize: 24)),
+                            child: Text(item, style: TextStyle(fontSize: 12)),
                           ))
                       .toList(),
                   onChanged: (item) => setState(() => selectedItem = item),
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 5),
               Container(
+                height: 55,
                 width: MediaQuery.of(context).size.width * 0.90,
                 child: DropdownButtonFormField<String>(
                   decoration: InputDecoration(
@@ -183,14 +182,15 @@ class _CheckerState extends State<Checker> {
                   items: items2
                       .map((item) => DropdownMenuItem<String>(
                             value: item,
-                            child: Text(item, style: TextStyle(fontSize: 24)),
+                            child: Text(item, style: TextStyle(fontSize: 12)),
                           ))
                       .toList(),
                   onChanged: (item) => setState(() => selectedItem2 = item),
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 5),
               Container(
+                height: 55,
                 width: MediaQuery.of(context).size.width * 0.90,
                 child: DropdownButtonFormField<String>(
                   decoration: InputDecoration(
@@ -203,14 +203,15 @@ class _CheckerState extends State<Checker> {
                   items: items3
                       .map((item) => DropdownMenuItem<String>(
                             value: item,
-                            child: Text(item, style: TextStyle(fontSize: 24)),
+                            child: Text(item, style: TextStyle(fontSize: 12)),
                           ))
                       .toList(),
                   onChanged: (item) => setState(() => selectedItem3 = item),
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 5),
               Container(
+                height: 55,
                 width: MediaQuery.of(context).size.width * 0.90,
                 child: DropdownButtonFormField<String>(
                   decoration: InputDecoration(
@@ -223,14 +224,15 @@ class _CheckerState extends State<Checker> {
                   items: items4
                       .map((item) => DropdownMenuItem<String>(
                             value: item,
-                            child: Text(item, style: TextStyle(fontSize: 24)),
+                            child: Text(item, style: TextStyle(fontSize: 12)),
                           ))
                       .toList(),
                   onChanged: (item) => setState(() => selectedItem4 = item),
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 5),
               Container(
+                height: 55,
                 width: MediaQuery.of(context).size.width * 0.90,
                 child: DropdownButtonFormField<String>(
                   decoration: InputDecoration(
@@ -243,14 +245,15 @@ class _CheckerState extends State<Checker> {
                   items: items5
                       .map((item) => DropdownMenuItem<String>(
                             value: item,
-                            child: Text(item, style: TextStyle(fontSize: 24)),
+                            child: Text(item, style: TextStyle(fontSize: 12)),
                           ))
                       .toList(),
                   onChanged: (item) => setState(() => selectedItem5 = item),
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 5),
               Container(
+                height: 55,
                 width: MediaQuery.of(context).size.width * 0.90,
                 child: DropdownButtonFormField<String>(
                   decoration: InputDecoration(
@@ -263,18 +266,18 @@ class _CheckerState extends State<Checker> {
                   items: items6
                       .map((item) => DropdownMenuItem<String>(
                             value: item,
-                            child: Text(item, style: TextStyle(fontSize: 24)),
+                            child: Text(item, style: TextStyle(fontSize: 12)),
                           ))
                       .toList(),
                   onChanged: (item) => setState(() => selectedItem6 = item),
                 ),
               ),
-              SizedBox(height: 30),
+              SizedBox(height: 20),
               Container(
                   width: MediaQuery.of(context).size.width * 0.90,
                   child: codeField),
               SizedBox(
-                height: 10,
+                height: 5,
               ),
               Container(
                   width: MediaQuery.of(context).size.width * 0.90,
