@@ -41,7 +41,7 @@ class _SemesterScreen7State extends State<SemesterScreen7> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Grades'),
+        title: Text('Semester 7'),
       ),
       body: SafeArea(
         child: Column(
