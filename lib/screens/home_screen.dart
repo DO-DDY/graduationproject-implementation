@@ -93,10 +93,28 @@ class _HomeScreenState extends State<HomeScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
-                      child: InkWell(
-                        onTap: () {
+                    Container(
+                      width: 85,
+                      height: 85,
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                              side: BorderSide(
+                                color: Constant.color,
+                                width: 2.0,
+                              ),
+                            ),
+                          ),
+                        ),
+                        child: Image.asset(
+                          scale: 13,
+                          "assets/exam.png",
+                          color: Colors.white,
+                        ),
+                        onPressed: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -104,24 +122,33 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           );
                         },
-                        child: Ink(
-                          height: 80,
-                          color: Constant.color,
-                          padding: EdgeInsets.all(20),
-                          child: Image.asset(
-                            "assets/exam.png",
-                            color: Colors.white,
-                          ),
-                        ),
                       ),
                     ),
                     SizedBox(
                       width: 25,
                     ),
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
-                      child: InkWell(
-                        onTap: () {
+                    Container(
+                      width: 85,
+                      height: 85,
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                              side: BorderSide(
+                                color: Constant.color,
+                                width: 2.0,
+                              ),
+                            ),
+                          ),
+                        ),
+                        child: Image.asset(
+                          scale: 13,
+                          "assets/level.png",
+                          color: Colors.white,
+                        ),
+                        onPressed: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -129,17 +156,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           );
                         },
-                        child: Container(
-                          height: 80,
-                          color: Constant.color,
-                          padding: EdgeInsets.all(20),
-                          child: Image.asset(
-                            "assets/level.png",
-                            color: Colors.white,
-                          ),
-                        ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ],
