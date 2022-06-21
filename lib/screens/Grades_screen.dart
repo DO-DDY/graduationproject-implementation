@@ -241,7 +241,7 @@ gradeChecker(input) {
   if (input == null) {
     return 'loading...';
   } else {
-    if (double.tryParse(input)! < 100 && double.tryParse(input)! > 95) {
+    if (double.tryParse(input)! <= 100 && double.tryParse(input)! > 95) {
       return "A";
     } else if (double.tryParse(input)! < 95 && double.tryParse(input)! > 85) {
       return "B";
