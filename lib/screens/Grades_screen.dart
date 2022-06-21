@@ -172,6 +172,7 @@ class _GradesScreenState extends State<GradesScreen> {
   }
 }
 
+//Grades Function
 gradeChecker(input) {
   if (input == null) {
     return 'loading...';
