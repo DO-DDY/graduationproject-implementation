@@ -12,14 +12,14 @@ import 'package:graduationprojectyarb/screens/semester_screen7.dart';
 import '../config/constant.dart';
 import '../model/user_model.dart';
 
-class GradesScreen extends StatefulWidget {
-  const GradesScreen({Key? key}) : super(key: key);
+class SemesterScreen extends StatefulWidget {
+  const SemesterScreen({Key? key}) : super(key: key);
 
   @override
-  _GradesScreenState createState() => _GradesScreenState();
+  _SemesterScreenState createState() => _SemesterScreenState();
 }
 
-class _GradesScreenState extends State<GradesScreen> {
+class _SemesterScreenState extends State<SemesterScreen> {
   User? user = FirebaseAuth.instance.currentUser;
   UserModel loggedInUser = UserModel();
 
@@ -57,35 +57,34 @@ class _GradesScreenState extends State<GradesScreen> {
                 ],
                 rows: [
                   DataRow(cells: [
-                    DataCell(Text('english')),
-                    DataCell(Text('${gradeChecker(loggedInUser.english)}')),
-                    DataCell(Text('${loggedInUser.english}')),
+                    DataCell(Text('Subject')),
+                    DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
+                    DataCell(Text(/*'${loggedInUser.}'*/ '')),
                   ]),
                   DataRow(cells: [
-                    DataCell(Text('MC')),
-                    DataCell(Text('${gradeChecker(loggedInUser.mc)}')),
-                    DataCell(Text('${loggedInUser.mc}')),
+                    DataCell(Text('Subject')),
+                    DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
+                    DataCell(Text(/*'${loggedInUser.}'*/ '')),
                   ]),
                   DataRow(cells: [
-                    DataCell(Text('DSS')),
-                    DataCell(Text('${gradeChecker(loggedInUser.dss)}')),
-                    DataCell(Text('${loggedInUser.dss}')),
+                    DataCell(Text('Subject')),
+                    DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
+                    DataCell(Text(/*'${loggedInUser.}'*/ '')),
                   ]),
                   DataRow(cells: [
-                    DataCell(Text('GIS')),
-                    DataCell(Text('${gradeChecker(loggedInUser.gis)}')),
-                    DataCell(Text('${loggedInUser.gis}')),
+                    DataCell(Text('Subject')),
+                    DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
+                    DataCell(Text(/*'${loggedInUser.}'*/ '')),
                   ]),
                   DataRow(cells: [
-                    DataCell(Text('IT')),
-                    DataCell(Text(
-                        '${gradeChecker(loggedInUser.it_project_management)}')),
-                    DataCell(Text('${loggedInUser.it_project_management}')),
+                    DataCell(Text('Subject')),
+                    DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
+                    DataCell(Text(/*'${loggedInUser.}'*/ '')),
                   ]),
                   DataRow(cells: [
-                    DataCell(Text('Data mining')),
-                    DataCell(Text('${gradeChecker(loggedInUser.data_mining)}')),
-                    DataCell(Text('${loggedInUser.data_mining}')),
+                    DataCell(Text('Subject')),
+                    DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
+                    DataCell(Text(/*'${loggedInUser.}'*/ '')),
                   ]),
                 ],
               ),
