@@ -446,7 +446,7 @@ class _CheckerState extends State<Checker> {
         selectedItem6 = "semester_1_subject_6";
         selectedItem7 = "semester_1_subject_7";
       } else if (currentSemester == "1") {
-        selectedItem = _subjectValidatorcase(selectedItem);
+        selectedItem = _subjectValidator(selectedItem);
         selectedItem2 = "semester_2_subject_2";
         selectedItem3 = "semester_2_subject_3";
         selectedItem4 = "semester_2_subject_4";
