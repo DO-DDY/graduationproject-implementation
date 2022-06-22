@@ -61,9 +61,9 @@ class _SemesterScreenState extends State<SemesterScreen> {
                     ],
                     rows: [
                       DataRow(cells: [
-                        DataCell(Text('Subject')),
+                        DataCell(Text('test')),
                         DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
-                        DataCell(Text(/*'${loggedInUser.}'*/ '')),
+                        DataCell(Text('${loggedInUser.semester_1?["DSS"]}')),
                       ]),
                       DataRow(cells: [
                         DataCell(Text('Subject')),

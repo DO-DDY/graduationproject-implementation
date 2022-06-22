@@ -10,6 +10,9 @@ class UserModel {
   String? gis;
   String? it_project_management;
   String? semester8code;
+  Map? semester_1;
+  Map? semester_7;
+  Map? semester_8;
 
   UserModel(
       {this.uid,
@@ -22,7 +25,10 @@ class UserModel {
       this.gis,
       this.it_project_management,
       this.mc,
-      this.semester8code});
+      this.semester8code,
+      this.semester_1,
+      this.semester_7,
+      this.semester_8});
 
   //receiving data from server
   factory UserModel.fromMap(map) {
@@ -37,7 +43,10 @@ class UserModel {
         data_mining: map['data_mining'],
         gis: map['gis'],
         it_project_management: map['it_project_management'],
-        semester8code: map['semester8code']);
+        semester8code: map['semester8code'],
+        semester_1: map['semester_1'],
+        semester_7: map['semester_7'],
+        semester_8: map['semester_8']);
   }
 
   //sending data to server
@@ -47,6 +56,8 @@ class UserModel {
       'email': email,
       'firstName': firstName,
       'secondName': secondName,
+      'semester_1': semester_1,
+      'semester_8': semester_8
     };
   }
 }
