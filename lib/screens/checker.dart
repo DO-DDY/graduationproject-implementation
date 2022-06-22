@@ -39,60 +39,60 @@ class _CheckerState extends State<Checker> {
   List<String> items = [
     'English 1',
     'English 2',
-    'semester_3_subject_1',
-    'semester_4_subject_1',
-    'semester_5_subject_1',
-    'semester_6_subject_1',
-    'semester_7_subject_1',
-    'semester_8_subject_1',
+    'Money and banking',
+    'Enterprise applications',
+    'Data communication',
+    'HCI',
+    'Operating System',
+    'Dss',
   ];
   String? selectedItem;
 
   List<String> items2 = [
-    'semester_1_subject_2',
-    'semester_2_subject_2',
-    'semester_3_subject_2',
-    'semester_4_subject_2',
-    'semester_5_subject_2',
-    'semester_6_subject_2',
-    'semester_7_subject_2',
-    'semester_8_subject_2',
+    'Microeconomics',
+    'Macroeconomics',
+    'Statistics 2',
+    'Discrete math',
+    'TQM',
+    'English 6',
+    'AI',
+    'English 8',
   ];
   String? selectedItem2;
 
   List<String> items3 = [
-    'semester_1_subject_3',
-    'semester_2_subject_3',
-    'semester_3_subject_3',
-    'semester_4_subject_3',
-    'semester_5_subject_3',
-    'semester_6_subject_3',
-    'semester_7_subject_3',
-    'semester_8_subject_3',
+    'Math 1',
+    'Statistics 1',
+    'MIS',
+    'Programming',
+    'OR',
+    'Business process modeling',
+    'Software engineering',
+    'Mobile computing',
   ];
   String? selectedItem3;
 
   List<String> items4 = [
-    'semester_1_subject_4',
-    'semester_2_subject_4',
-    'semester_3_subject_4',
-    'semester_4_subject_4',
-    'semester_5_subject_4',
-    'semester_6_subject_4',
-    'semester_7_subject_4',
-    'semester_8_subject_4',
+    'Accounting 1',
+    'Accounting 2',
+    'Principle of marketing',
+    'Scientific Research',
+    'English 5',
+    'International business',
+    'Information storage',
+    'IT project management',
   ];
   String? selectedItem4;
 
   List<String> items5 = [
-    'semester_1_subject_5',
-    'semester_2_subject_5',
-    'semester_3_subject_5',
-    'semester_4_subject_5',
-    'semester_5_subject_5',
-    'semester_6_subject_5',
-    'semester_7_subject_5',
-    'semester_8_subject_5',
+    'IT',
+    'OB',
+    'English 3',
+    'Principle of finance',
+    'Cost accounting',
+    'System analysis',
+    'English 7',
+    'Data mining',
   ];
   String? selectedItem5;
 
@@ -100,26 +100,26 @@ class _CheckerState extends State<Checker> {
   String? selectedItem5_failed;
 
   List<String> items6 = [
-    'semester_1_subject_6',
-    'semester_2_subject_6',
-    'semester_3_subject_6',
-    'semester_4_subject_6',
-    'semester_5_subject_6',
-    'semester_6_subject_6',
-    'semester_7_subject_6',
-    'semester_8_subject_6',
+    'Principle of management',
+    'Translation',
+    'Operation management',
+    'English 4',
+    'Data structure',
+    'E-Commerce',
+    'Strategic Management',
+    'GIS',
   ];
   String? selectedItem6;
 
   List<String> items7 = [
-    'semester_1_subject_7',
-    'semester_2_subject_7',
-    'semester_3_subject_7',
-    'semester_4_subject_7',
-    'semester_5_subject_7',
-    'semester_6_subject_7',
-    'semester_7_subject_7',
-    'semester_8_subject_7',
+    'Science And technology',
+    'no subject',
+    'Business law',
+    'Human resource management',
+    'Data base',
+    'no subject',
+    'Managerial Accounting',
+    'no subject',
   ];
   String? selectedItem7;
 
@@ -443,64 +443,64 @@ class _CheckerState extends State<Checker> {
         selectedItem3 = "Math 1";
         selectedItem4 = "semester_1_subject_4";
         selectedItem5 = "semester_1_subject_5";
-        selectedItem6 = "semester_1_subject_6";
-        selectedItem7 = "semester_1_subject_7";
+        selectedItem6 = "Principle of management";
+        selectedItem7 = "Science And technology";
       } else if (currentSemester == "1") {
         selectedItem = _subjectValidatorSemester1("English 2");
         selectedItem2 = "semester_2_subject_2";
         selectedItem3 = "semester_2_subject_3";
         selectedItem4 = "semester_2_subject_4";
         selectedItem5 = "semester_2_subject_5";
-        selectedItem6 = "semester_2_subject_6";
-        selectedItem7 = "semester_2_subject_7";
+        selectedItem6 = "Translation";
+        selectedItem7 = "no subject";
       } else if (currentSemester == "2") {
         selectedItem = "semester_3_subject_1";
         selectedItem2 = "semester_3_subject_2";
         selectedItem3 = "semester_3_subject_3";
         selectedItem4 = "semester_3_subject_4";
         selectedItem5 = "semester_3_subject_5";
-        selectedItem6 = "semester_3_subject_6";
-        selectedItem7 = "semester_3_subject_7";
+        selectedItem6 = "Operation management";
+        selectedItem7 = "Business law";
       } else if (currentSemester == "3") {
         selectedItem = "semester_4_subject_1";
         selectedItem2 = "semester_4_subject_2";
         selectedItem3 = "semester_4_subject_3";
         selectedItem4 = "semester_4_subject_4";
         selectedItem5 = "semester_4_subject_5";
-        selectedItem6 = "semester_4_subject_6";
-        selectedItem7 = "semester_4_subject_7";
+        selectedItem6 = "English 4";
+        selectedItem7 = "Human resource management";
       } else if (currentSemester == "4") {
         selectedItem = "semester_5_subject_1";
         selectedItem2 = "semester_5_subject_2";
         selectedItem3 = "semester_5_subject_3";
         selectedItem4 = "semester_5_subject_4";
         selectedItem5 = "semester_5_subject_5";
-        selectedItem6 = "semester_5_subject_6";
-        selectedItem7 = "semester_5_subject_7";
+        selectedItem6 = "Data structure";
+        selectedItem7 = "Data base";
       } else if (currentSemester == "5") {
         final docUser = selectedItem = "English 1";
         selectedItem2 = "semester_6_subject_2";
         selectedItem3 = "semester_6_subject_3";
         selectedItem4 = "semester_6_subject_4";
-        selectedItem5 = "semester_6_subject_5";
-        selectedItem6 = "semester_6_subject_6";
-        selectedItem7 = "semester_6_subject_7";
+        selectedItem5 = "System analysis";
+        selectedItem6 = "E-Commerce";
+        selectedItem7 = "no subject";
       } else if (currentSemester == "6") {
         selectedItem = "semester_7_subject_1";
         selectedItem2 = "semester_7_subject_2";
         selectedItem3 = "semester_7_subject_3";
         selectedItem4 = "semester_7_subject_4";
-        selectedItem5 = "semester_7_subject_5";
-        selectedItem6 = "semester_7_subject_6";
-        selectedItem7 = "semester_7_subject_7";
+        selectedItem5 = "English 7";
+        selectedItem6 = "Strategic Management";
+        selectedItem7 = "Managerial Accounting";
       } else if (currentSemester == "7") {
         selectedItem = "semester_8_subject_1";
         selectedItem2 = "semester_8_subject_2";
         selectedItem3 = "semester_8_subject_3";
         selectedItem4 = "semester_8_subject_4";
-        selectedItem5 = "semester_8_subject_5";
-        selectedItem6 = "semester_8_subject_6";
-        selectedItem7 = "semester_8_subject_7";
+        selectedItem5 = "Data mining";
+        selectedItem6 = "GIS";
+        selectedItem7 = "no subject";
       } else
         return Text(
             "there is probably an error in your database check with your advisor");
