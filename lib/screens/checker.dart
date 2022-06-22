@@ -439,14 +439,14 @@ class _CheckerState extends State<Checker> {
     } else {
       if (currentSemester == "0") {
         selectedItem = "English 1";
-        selectedItem2 = "semester_1_subject_2";
-        selectedItem3 = "semester_1_subject_3";
+        selectedItem2 = "Microeconomices";
+        selectedItem3 = "Math 1";
         selectedItem4 = "semester_1_subject_4";
         selectedItem5 = "semester_1_subject_5";
         selectedItem6 = "semester_1_subject_6";
         selectedItem7 = "semester_1_subject_7";
       } else if (currentSemester == "1") {
-        selectedItem = _subjectValidator(selectedItem);
+        selectedItem = _subjectValidatorSemester1("English 2");
         selectedItem2 = "semester_2_subject_2";
         selectedItem3 = "semester_2_subject_3";
         selectedItem4 = "semester_2_subject_4";
@@ -599,13 +599,13 @@ class _CheckerState extends State<Checker> {
         final docUser =
             FirebaseFirestore.instance.collection('users').doc(user!.uid);
         docUser.update({
-          'semester_8.${selectedItem}': '',
-          'semester_8.${selectedItem2}': '',
-          'semester_8.${selectedItem3}': '',
-          'semester_8.${selectedItem4}': '',
-          'semester_8.${selectedItem5}': '',
-          'semester_8.${selectedItem6}': '',
-          'semester_4.${selectedItem7}': '',
+          'semester_8.${selectedItem}': '0',
+          'semester_8.${selectedItem2}': '0',
+          'semester_8.${selectedItem3}': '0',
+          'semester_8.${selectedItem4}': '0',
+          'semester_8.${selectedItem5}': '0',
+          'semester_8.${selectedItem6}': '0',
+          'semester_4.${selectedItem7}': '0',
         });
       } else
         return Text(
@@ -613,7 +613,7 @@ class _CheckerState extends State<Checker> {
     }
   }
 
-  _subjectValidator(subject) {
+  _subjectValidatorSemester1(subject) {
     if (loggedInUser.current_semester == "1") {
       {
         if (double.tryParse(loggedInUser.semester_1?["English 1"])! >= 50) {
@@ -625,11 +625,166 @@ class _CheckerState extends State<Checker> {
         }
       }
     } else if (loggedInUser.current_semester == "1") {
-      if (double.tryParse(loggedInUser.semester_1?["English 1"])! >= 50) {
-        String newSubject = "English 2";
+      if (double.tryParse(loggedInUser.semester_1?["Accounting 1"])! >= 50) {
+        String newSubject = "Accounting 2";
         return newSubject;
       } else {
-        String oldSubject = "English 1";
+        String oldSubject = "Accounting 1";
+        return oldSubject;
+      }
+    } else if (loggedInUser.current_semester == "1") {
+      {
+        if (double.tryParse(loggedInUser.semester_1?["Microeconomics"])! >=
+            50) {
+          String newSubject = "Macroeconomics";
+          return newSubject;
+        } else {
+          String oldSubject = "Microeconomics";
+          return oldSubject;
+        }
+      }
+    } else if (loggedInUser.current_semester == "1") {
+      if (double.tryParse(loggedInUser.semester_1?["Math 1"])! >= 50) {
+        String newSubject = "Discrete math";
+        return newSubject;
+      } else {
+        String oldSubject = "Math 1";
+        return oldSubject;
+      }
+    } else if (loggedInUser.current_semester == "1") {
+      if (double.tryParse(loggedInUser.semester_1?["IT"])! >= 50) {
+        String newSubject = "MIS";
+        return newSubject;
+      } else {
+        String oldSubject = "IT";
+        return oldSubject;
+      }
+    } else if (loggedInUser.current_semester == "1") {
+      if (double.tryParse(
+              loggedInUser.semester_1?["Principle of management"])! >=
+          50) {
+        String newSubject = "International business";
+        return newSubject;
+      } else {
+        String oldSubject = "Principle of management";
+        return oldSubject;
+      }
+    }
+  }
+
+  _subjectValidator(subject) {
+    if (subject == "English 2") {
+      {
+        if (double.tryParse(loggedInUser.semester_1?["English 1"])! >= 50) {
+          String newSubject = "English 2";
+          return newSubject;
+        } else {
+          String oldSubject = "English 1";
+          return oldSubject;
+        }
+      }
+    } else if (subject == "Accounting 2") {
+      if (double.tryParse(loggedInUser.semester_1?["Accounting 1"])! >= 50) {
+        String newSubject = "Accounting 2";
+        return newSubject;
+      } else {
+        String oldSubject = "Accounting 1";
+        return oldSubject;
+      }
+    } else if (subject == "Macroeconomics") {
+      {
+        if (double.tryParse(loggedInUser.semester_1?["Microeconomics"])! >=
+            50) {
+          String newSubject = "Macroeconomics";
+          return newSubject;
+        } else {
+          String oldSubject = "Microeconomics";
+          return oldSubject;
+        }
+      }
+    } else if (subject == "Discrete math") {
+      if (double.tryParse(loggedInUser.semester_1?["Math 1"])! >= 50) {
+        String newSubject = "Discrete math";
+        return newSubject;
+      } else {
+        String oldSubject = "Math 1";
+        return oldSubject;
+      }
+    } else if (subject == "MIS") {
+      if (double.tryParse(loggedInUser.semester_1?["IT"])! >= 50) {
+        String newSubject = "MIS";
+        return newSubject;
+      } else {
+        String oldSubject = "IT";
+        return oldSubject;
+      }
+    } else if (subject == "International business") {
+      if (double.tryParse(
+              loggedInUser.semester_1?["Principle of management"])! >=
+          50) {
+        String newSubject = "International business";
+        return newSubject;
+      } else {
+        String oldSubject = "Principle of management";
+        return oldSubject;
+      }
+    }
+  }
+
+  _subjectValidatorSemester3(subject) {
+    if (subject == "English 2") {
+      {
+        if (double.tryParse(loggedInUser.semester_1?["English 1"])! >= 50) {
+          String newSubject = "English 2";
+          return newSubject;
+        } else {
+          String oldSubject = "English 1";
+          return oldSubject;
+        }
+      }
+    } else if (subject == "Accounting 2") {
+      if (double.tryParse(loggedInUser.semester_1?["Accounting 1"])! >= 50) {
+        String newSubject = "Accounting 2";
+        return newSubject;
+      } else {
+        String oldSubject = "Accounting 1";
+        return oldSubject;
+      }
+    } else if (subject == "Macroeconomics") {
+      {
+        if (double.tryParse(loggedInUser.semester_1?["Microeconomics"])! >=
+            50) {
+          String newSubject = "Macroeconomics";
+          return newSubject;
+        } else {
+          String oldSubject = "Microeconomics";
+          return oldSubject;
+        }
+      }
+    } else if (subject == "Discrete math") {
+      if (double.tryParse(loggedInUser.semester_1?["Math 1"])! >= 50) {
+        String newSubject = "Discrete math";
+        return newSubject;
+      } else {
+        String oldSubject = "Math 1";
+        return oldSubject;
+      }
+    } else if (subject == "MIS") {
+      if (double.tryParse(loggedInUser.semester_1?["IT"])! >= 50) {
+        String newSubject = "MIS";
+        return newSubject;
+      } else {
+        String oldSubject = "IT";
+        return oldSubject;
+      }
+    } else if (subject == "International business") {
+      if (double.tryParse(
+              loggedInUser.semester_1?["Principle of management"])! >=
+          50) {
+        String newSubject = "International business";
+        return newSubject;
+      } else {
+        String oldSubject = "Principle of management";
         return oldSubject;
       }
     }
