@@ -36,64 +36,25 @@ class _CheckerState extends State<Checker> {
     });
   }
 
-  List<String> items = [
-    'Data Mining',
-    'DSS',
-    'MC',
-    'English',
-    'GIS',
-    'It Project Management'
-  ];
+  List<String> items = ['Data Mining'];
   String? selectedItem = 'Data Mining';
 
-  List<String> items2 = [
-    'Data Mining',
-    'DSS',
-    'MC',
-    'English',
-    'GIS',
-    'It Project Management'
-  ];
+  List<String> items2 = ['DSS'];
   String? selectedItem2 = 'DSS';
 
-  List<String> items3 = [
-    'Data Mining',
-    'DSS',
-    'MC',
-    'English',
-    'GIS',
-    'It Project Management'
-  ];
+  List<String> items3 = ['MC'];
   String? selectedItem3 = 'MC';
 
-  List<String> items4 = [
-    'Data Mining',
-    'DSS',
-    'MC',
-    'English',
-    'GIS',
-    'It Project Management'
-  ];
+  List<String> items4 = ['English'];
   String? selectedItem4 = 'English';
 
-  List<String> items5 = [
-    'Data Mining',
-    'DSS',
-    'MC',
-    'English',
-    'GIS',
-    'It Project Management'
-  ];
+  List<String> items5 = ['GIS'];
   String? selectedItem5 = 'GIS';
 
-  List<String> items6 = [
-    'Data Mining',
-    'DSS',
-    'MC',
-    'English',
-    'GIS',
-    'It Project Management'
-  ];
+  List<String> items5_failed = ['Software Engineering'];
+  String? selectedItem5_failed = 'Software Engineering';
+
+  List<String> items6 = ['It Project Management'];
   String? selectedItem6 = 'It Project Management';
 
   @override
@@ -223,25 +184,49 @@ class _CheckerState extends State<Checker> {
                 ),
                 SizedBox(height: 5),
                 Container(
-                  height: 55,
-                  width: MediaQuery.of(context).size.width * 0.90,
-                  child: DropdownButtonFormField<String>(
-                    decoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
-                        borderSide: BorderSide(width: 3, color: Constant.color),
-                      ),
-                    ),
-                    value: selectedItem5,
-                    items: items5
-                        .map((item) => DropdownMenuItem<String>(
-                              value: item,
-                              child: Text(item, style: TextStyle(fontSize: 12)),
-                            ))
-                        .toList(),
-                    onChanged: (item) => setState(() => selectedItem5 = item),
-                  ),
-                ),
+                    height: 55,
+                    width: MediaQuery.of(context).size.width * 0.90,
+                    child: (subjectBlocker(
+                      "${loggedInUser.semester_7?['software_engineering'] ?? 0}",
+                    ))
+                        ? DropdownButtonFormField<String>(
+                            decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12),
+                                borderSide:
+                                    BorderSide(width: 3, color: Constant.color),
+                              ),
+                            ),
+                            value: selectedItem5,
+                            items: items5
+                                .map((item) => DropdownMenuItem<String>(
+                                      value: item,
+                                      child: Text(item,
+                                          style: TextStyle(fontSize: 12)),
+                                    ))
+                                .toList(),
+                            onChanged: (item) =>
+                                setState(() => selectedItem5 = item),
+                          )
+                        : DropdownButtonFormField<String>(
+                            decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12),
+                                borderSide:
+                                    BorderSide(width: 3, color: Constant.color),
+                              ),
+                            ),
+                            value: selectedItem5_failed,
+                            items: items5_failed
+                                .map((item) => DropdownMenuItem<String>(
+                                      value: item,
+                                      child: Text(item,
+                                          style: TextStyle(fontSize: 12)),
+                                    ))
+                                .toList(),
+                            onChanged: (item) =>
+                                setState(() => selectedItem5_failed = item),
+                          )),
                 SizedBox(height: 5),
                 Container(
                   height: 55,
@@ -281,12 +266,22 @@ class _CheckerState extends State<Checker> {
                                 return ("Your Code Is Not Correct");
                               }
                               if (value == loggedInUser.semester8code) {
+                                final docUser = FirebaseFirestore.instance
+                                    .collection('users')
+                                    .doc(user!.uid);
+                                docUser.update({
+                                  'semester_8.${selectedItem}': '',
+                                  'semester_8.${selectedItem2}': '',
+                                  'semester_8.${selectedItem3}': '',
+                                  'semester_8.${selectedItem4}': '',
+                                  'semester_8.${selectedItem5}': '',
+                                  'semester_8.${selectedItem6}': '',
+                                });
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => const LevelUp()),
                                 );
-                                return ("Your Code Has Been Verified");
                               }
                               return null;
                             },
@@ -332,5 +327,17 @@ class _CheckerState extends State<Checker> {
         ),
       ),
     );
+  }
+
+  subjectBlocker(input) {
+    if (input == null) {
+      return "loading...";
+    } else {
+      if (double.tryParse(input)! >= 50) {
+        return true;
+      } else {
+        return false;
+      }
+    }
   }
 }
