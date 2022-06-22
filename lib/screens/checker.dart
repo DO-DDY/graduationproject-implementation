@@ -186,7 +186,7 @@ class _CheckerState extends State<Checker> {
                 Container(
                     height: 55,
                     width: MediaQuery.of(context).size.width * 0.90,
-                    child: (subjectBlocker(
+                    child: (_subjectBlocker(
                       "${loggedInUser.semester_7?['software_engineering'] ?? 0}",
                     ))
                         ? DropdownButtonFormField<String>(
@@ -225,7 +225,8 @@ class _CheckerState extends State<Checker> {
                                     ))
                                 .toList(),
                             onChanged: (item) =>
-                                setState(() => selectedItem5_failed = item),
+                                setState(() => selectedItem5 = item),
+                            focusColor: item5getter(),
                           )),
                 SizedBox(height: 5),
                 Container(
@@ -329,7 +330,11 @@ class _CheckerState extends State<Checker> {
     );
   }
 
-  subjectBlocker(input) {
+  item5getter() {
+    selectedItem5 = selectedItem5_failed;
+  }
+
+  _subjectBlocker(input) {
     if (input == null) {
       return "loading...";
     } else {
