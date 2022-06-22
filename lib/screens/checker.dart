@@ -37,57 +37,62 @@ class _CheckerState extends State<Checker> {
   }
 
   List<String> items = [
-    'Data Mining',
     'semester_1_subject_1',
     'semester_2_subject_1',
     'semester_3_subject_1',
     'semester_4_subject_1',
     'semester_5_subject_1',
     'semester_6_subject_1',
+    'semester_7_subject_1',
+    'semester_8_subject_1',
   ];
   String? selectedItem;
 
   List<String> items2 = [
-    'DSS',
     'semester_1_subject_2',
     'semester_2_subject_2',
     'semester_3_subject_2',
     'semester_4_subject_2',
     'semester_5_subject_2',
     'semester_6_subject_2',
+    'semester_7_subject_2',
+    'semester_8_subject_2',
   ];
   String? selectedItem2;
 
   List<String> items3 = [
-    'MC',
     'semester_1_subject_3',
     'semester_2_subject_3',
     'semester_3_subject_3',
     'semester_4_subject_3',
     'semester_5_subject_3',
     'semester_6_subject_3',
+    'semester_7_subject_3',
+    'semester_8_subject_3',
   ];
   String? selectedItem3;
 
   List<String> items4 = [
-    'English',
     'semester_1_subject_4',
     'semester_2_subject_4',
     'semester_3_subject_4',
     'semester_4_subject_4',
     'semester_5_subject_4',
     'semester_6_subject_4',
+    'semester_7_subject_4',
+    'semester_8_subject_4',
   ];
   String? selectedItem4;
 
   List<String> items5 = [
-    'GIS',
     'semester_1_subject_5',
     'semester_2_subject_5',
     'semester_3_subject_5',
     'semester_4_subject_5',
     'semester_5_subject_5',
     'semester_6_subject_5',
+    'semester_7_subject_5',
+    'semester_8_subject_5',
   ];
   String? selectedItem5;
 
@@ -95,13 +100,14 @@ class _CheckerState extends State<Checker> {
   String? selectedItem5_failed;
 
   List<String> items6 = [
-    'It Project Management',
     'semester_1_subject_6',
     'semester_2_subject_6',
     'semester_3_subject_6',
     'semester_4_subject_6',
     'semester_5_subject_6',
     'semester_6_subject_6',
+    'semester_7_subject_6',
+    'semester_8_subject_6',
   ];
   String? selectedItem6;
 
@@ -284,8 +290,8 @@ class _CheckerState extends State<Checker> {
                                     BorderSide(width: 3, color: Constant.color),
                               ),
                             ),
-                            value: selectedItem5_failed,
-                            items: items5_failed
+                            value: selectedItem5,
+                            items: items5
                                 .map((item) => DropdownMenuItem<String>(
                                       value: item,
                                       child: Text(item,

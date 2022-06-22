@@ -40,62 +40,67 @@ class _LevelUpState extends State<LevelUp> {
         centerTitle: true,
         title: Text('Schedule'),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          FutureBuilder(
-            future: storage.downloadURL('gdwal.jpg'),
-            builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-              if (snapshot.connectionState == ConnectionState.done &&
-                  snapshot.hasData) {
-                return SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      Container(
-                        height: MediaQuery.of(context).size.height / 1.3,
-                        child: Image.network(
-                          snapshot.data!,
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            FutureBuilder(
+              future: storage.downloadURL('gdwal.jpg'),
+              builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+                if (snapshot.connectionState == ConnectionState.done &&
+                    snapshot.hasData) {
+                  return SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Container(
+                          height: MediaQuery.of(context).size.height / 1.3,
+                          child: Image.network(
+                            snapshot.data!,
+                          ),
                         ),
-                      ),
-                      Text(
-                          style: TextStyle(
-                              color: Constant.color,
-                              fontWeight: FontWeight.bold),
-                          textAlign: TextAlign.center,
-                          'Congratulation You Have Successfully Assigned the Following Subjects'),
-                      SizedBox(
-                        height: 2,
-                      ),
-                      Text(
-                          style: TextStyle(
-                              color: Constant.color,
-                              fontWeight: FontWeight.normal),
-                          textAlign: TextAlign.center,
-                          ''),
-                      _assignedSubjects(loggedInUser.current_semester)
-                    ],
-                  ),
-                );
-              }
-              if (snapshot.connectionState == ConnectionState.waiting ||
-                  !snapshot.hasData) {
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Center(
-                      child: Container(
-                        child: CircularProgressIndicator(
-                          color: Constant.color,
+                        Text(
+                            style: TextStyle(
+                                color: Constant.color,
+                                fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center,
+                            'Congratulation You Have Successfully Assigned the Following Subjects'),
+                        SizedBox(
+                          height: 2,
                         ),
-                      ),
+                        Text(
+                            style: TextStyle(
+                                color: Constant.color,
+                                fontWeight: FontWeight.normal),
+                            textAlign: TextAlign.center,
+                            ''),
+                        _assignedSubjects(loggedInUser.current_semester),
+                        SizedBox(
+                          height: 20,
+                        )
+                      ],
                     ),
-                  ],
-                );
-              }
-              return Container();
-            },
-          ),
-        ],
+                  );
+                }
+                if (snapshot.connectionState == ConnectionState.waiting ||
+                    !snapshot.hasData) {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Center(
+                        child: Container(
+                          child: CircularProgressIndicator(
+                            color: Constant.color,
+                          ),
+                        ),
+                      ),
+                    ],
+                  );
+                }
+                return Container();
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
