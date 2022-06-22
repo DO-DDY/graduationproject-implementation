@@ -105,53 +105,59 @@ class _LevelUpState extends State<LevelUp> {
     );
   }
 
-  _assignedSubjects(input) {
-    if (input == null) {
+  _assignedSubjects(currentSemester) {
+    if (currentSemester == null) {
       return Container();
     } else {
-      if (input == "1") {
+      if (currentSemester == "0") {
+        return Text(
+            style:
+                TextStyle(color: Constant.color, fontWeight: FontWeight.normal),
+            textAlign: TextAlign.center,
+            '${loggedInUser.semester_1}');
+      } else if (currentSemester == "1") {
         return Text(
             style:
                 TextStyle(color: Constant.color, fontWeight: FontWeight.normal),
             textAlign: TextAlign.center,
             '${loggedInUser.semester_2}');
-      } else if (input == "2") {
+      } else if (currentSemester == "2") {
         return Text(
             style:
                 TextStyle(color: Constant.color, fontWeight: FontWeight.normal),
             textAlign: TextAlign.center,
             '${loggedInUser.semester_3}');
-      } else if (input == "3") {
+      } else if (currentSemester == "3") {
         return Text(
             style:
                 TextStyle(color: Constant.color, fontWeight: FontWeight.normal),
             textAlign: TextAlign.center,
             '${loggedInUser.semester_4}');
-      } else if (input == "4") {
+      } else if (currentSemester == "4") {
         return Text(
             style:
                 TextStyle(color: Constant.color, fontWeight: FontWeight.normal),
             textAlign: TextAlign.center,
             '${loggedInUser.semester_5}');
-      } else if (input == "5") {
+      } else if (currentSemester == "5") {
         return Text(
             style:
                 TextStyle(color: Constant.color, fontWeight: FontWeight.normal),
             textAlign: TextAlign.center,
             '${loggedInUser.semester_6}');
-      } else if (input == "6") {
+      } else if (currentSemester == "6") {
         return Text(
             style:
                 TextStyle(color: Constant.color, fontWeight: FontWeight.normal),
             textAlign: TextAlign.center,
             '${loggedInUser.semester_7}');
-      } else if (input == "7") {
+      } else if (currentSemester == "7") {
         return Text(
             style:
                 TextStyle(color: Constant.color, fontWeight: FontWeight.normal),
             textAlign: TextAlign.center,
             '${loggedInUser.semester_8}');
-      } else if (input == "8") {
+      } else if (currentSemester == "8") {
         return Text(
             style:
                 TextStyle(color: Constant.color, fontWeight: FontWeight.normal),

@@ -37,8 +37,8 @@ class _CheckerState extends State<Checker> {
   }
 
   List<String> items = [
-    'semester_1_subject_1',
-    'semester_2_subject_1',
+    'English 1',
+    'English 2',
     'semester_3_subject_1',
     'semester_4_subject_1',
     'semester_5_subject_1',
@@ -110,6 +110,18 @@ class _CheckerState extends State<Checker> {
     'semester_8_subject_6',
   ];
   String? selectedItem6;
+
+  List<String> items7 = [
+    'semester_1_subject_7',
+    'semester_2_subject_7',
+    'semester_3_subject_7',
+    'semester_4_subject_7',
+    'semester_5_subject_7',
+    'semester_6_subject_7',
+    'semester_7_subject_7',
+    'semester_8_subject_7',
+  ];
+  String? selectedItem7;
 
   @override
   Widget build(BuildContext context) {
@@ -260,48 +272,24 @@ class _CheckerState extends State<Checker> {
                 Container(
                     height: 55,
                     width: MediaQuery.of(context).size.width * 0.90,
-                    child: (_subjectBlocker(
-                      "${loggedInUser.semester_7?['software_engineering'] ?? 0}",
-                    ))
-                        ? DropdownButtonFormField<String>(
-                            decoration: InputDecoration(
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(12),
-                                borderSide:
-                                    BorderSide(width: 3, color: Constant.color),
-                              ),
-                            ),
-                            value: selectedItem5,
-                            items: items5
-                                .map((item) => DropdownMenuItem<String>(
-                                      value: item,
-                                      child: Text(item,
-                                          style: TextStyle(fontSize: 12)),
-                                    ))
-                                .toList(),
-                            onChanged: (item) =>
-                                setState(() => selectedItem5 = item),
-                          )
-                        : DropdownButtonFormField<String>(
-                            decoration: InputDecoration(
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(12),
-                                borderSide:
-                                    BorderSide(width: 3, color: Constant.color),
-                              ),
-                            ),
-                            value: selectedItem5,
-                            items: items5
-                                .map((item) => DropdownMenuItem<String>(
-                                      value: item,
-                                      child: Text(item,
-                                          style: TextStyle(fontSize: 12)),
-                                    ))
-                                .toList(),
-                            onChanged: (item) =>
-                                setState(() => selectedItem5 = item),
-                            // focusColor: _item5getter(),
-                          )),
+                    child: DropdownButtonFormField<String>(
+                      decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                          borderSide:
+                              BorderSide(width: 3, color: Constant.color),
+                        ),
+                      ),
+                      value: selectedItem5,
+                      items: items5
+                          .map((item) => DropdownMenuItem<String>(
+                                value: item,
+                                child:
+                                    Text(item, style: TextStyle(fontSize: 12)),
+                              ))
+                          .toList(),
+                      onChanged: (item) => setState(() => selectedItem5 = item),
+                    )),
                 SizedBox(height: 5),
                 Container(
                   height: 55,
@@ -360,6 +348,32 @@ class _CheckerState extends State<Checker> {
                             height: 10,
                           ),
                           Container(
+                            height: 55,
+                            width: MediaQuery.of(context).size.width * 0.90,
+                            child: DropdownButtonFormField<String>(
+                              decoration: InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(12),
+                                  borderSide: BorderSide(
+                                      width: 3, color: Constant.color),
+                                ),
+                              ),
+                              value: selectedItem7,
+                              items: items7
+                                  .map((item) => DropdownMenuItem<String>(
+                                        value: item,
+                                        child: Text(item,
+                                            style: TextStyle(fontSize: 12)),
+                                      ))
+                                  .toList(),
+                              onChanged: (item) =>
+                                  setState(() => selectedItem7 = item),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Container(
                             decoration: BoxDecoration(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(50)),
@@ -394,10 +408,6 @@ class _CheckerState extends State<Checker> {
     );
   }
 
-  _item5getter() {
-    selectedItem5 = selectedItem5_failed;
-  }
-
   _subjectBlocker(input) {
     if (input == null) {
       return "loading...";
@@ -423,136 +433,169 @@ class _CheckerState extends State<Checker> {
     }
   }
 
-  _selectedItemIndicator(input) {
-    if (input == null) {
+  _selectedItemIndicator(currentSemester) {
+    if (currentSemester == null) {
       return "loading...";
     } else {
-      if (input == "1") {
-        selectedItem = "semester_2_subject_1";
+      if (currentSemester == "0") {
+        selectedItem = "English 1";
+        selectedItem2 = "semester_1_subject_2";
+        selectedItem3 = "semester_1_subject_3";
+        selectedItem4 = "semester_1_subject_4";
+        selectedItem5 = "semester_1_subject_5";
+        selectedItem6 = "semester_1_subject_6";
+        selectedItem7 = "semester_1_subject_7";
+      } else if (currentSemester == "1") {
+        selectedItem = _subjectValidatorcase(selectedItem);
         selectedItem2 = "semester_2_subject_2";
         selectedItem3 = "semester_2_subject_3";
         selectedItem4 = "semester_2_subject_4";
         selectedItem5 = "semester_2_subject_5";
         selectedItem6 = "semester_2_subject_6";
-      } else if (input == "2") {
+        selectedItem7 = "semester_2_subject_7";
+      } else if (currentSemester == "2") {
         selectedItem = "semester_3_subject_1";
         selectedItem2 = "semester_3_subject_2";
         selectedItem3 = "semester_3_subject_3";
         selectedItem4 = "semester_3_subject_4";
         selectedItem5 = "semester_3_subject_5";
         selectedItem6 = "semester_3_subject_6";
-      } else if (loggedInUser.current_semester == "3") {
+        selectedItem7 = "semester_3_subject_7";
+      } else if (currentSemester == "3") {
         selectedItem = "semester_4_subject_1";
         selectedItem2 = "semester_4_subject_2";
         selectedItem3 = "semester_4_subject_3";
         selectedItem4 = "semester_4_subject_4";
         selectedItem5 = "semester_4_subject_5";
         selectedItem6 = "semester_4_subject_6";
-      } else if (loggedInUser.current_semester == "4") {
+        selectedItem7 = "semester_4_subject_7";
+      } else if (currentSemester == "4") {
         selectedItem = "semester_5_subject_1";
         selectedItem2 = "semester_5_subject_2";
         selectedItem3 = "semester_5_subject_3";
         selectedItem4 = "semester_5_subject_4";
         selectedItem5 = "semester_5_subject_5";
         selectedItem6 = "semester_5_subject_6";
-      } else if (loggedInUser.current_semester == "5") {
-        final docUser = selectedItem = "semester_1_subject_1";
+        selectedItem7 = "semester_5_subject_7";
+      } else if (currentSemester == "5") {
+        final docUser = selectedItem = "English 1";
         selectedItem2 = "semester_6_subject_2";
         selectedItem3 = "semester_6_subject_3";
         selectedItem4 = "semester_6_subject_4";
         selectedItem5 = "semester_6_subject_5";
         selectedItem6 = "semester_6_subject_6";
-      } else if (loggedInUser.current_semester == "6") {
+        selectedItem7 = "semester_6_subject_7";
+      } else if (currentSemester == "6") {
         selectedItem = "semester_7_subject_1";
         selectedItem2 = "semester_7_subject_2";
         selectedItem3 = "semester_7_subject_3";
         selectedItem4 = "semester_7_subject_4";
         selectedItem5 = "semester_7_subject_5";
         selectedItem6 = "semester_7_subject_6";
-      } else if (input == "7") {
+        selectedItem7 = "semester_7_subject_7";
+      } else if (currentSemester == "7") {
         selectedItem = "semester_8_subject_1";
         selectedItem2 = "semester_8_subject_2";
         selectedItem3 = "semester_8_subject_3";
         selectedItem4 = "semester_8_subject_4";
         selectedItem5 = "semester_8_subject_5";
         selectedItem6 = "semester_8_subject_6";
+        selectedItem7 = "semester_8_subject_7";
       } else
         return Text(
             "there is probably an error in your database check with your advisor");
     }
   }
 
-  _levelUp(input) {
-    if (input == null) {
+  _levelUp(currentSemester) {
+    if (currentSemester == null) {
       return "loading...";
     } else {
-      if (input == "1") {
+      if (currentSemester == "0") {
         final docUser =
             FirebaseFirestore.instance.collection('users').doc(user!.uid);
         docUser.update({
-          'semester_2.${selectedItem}': '',
-          'semester_2.${selectedItem2}': '',
-          'semester_2.${selectedItem3}': '',
-          'semester_2.${selectedItem4}': '',
-          'semester_2.${selectedItem5}': '',
-          'semester_2.${selectedItem6}': '',
+          'semester_1.${selectedItem}': '0',
+          'semester_1.${selectedItem2}': '0',
+          'semester_1.${selectedItem3}': '0',
+          'semester_1.${selectedItem4}': '0',
+          'semester_1.${selectedItem5}': '0',
+          'semester_1.${selectedItem6}': '0',
+          'semester_1.${selectedItem7}': '0',
         });
-      } else if (input == "2") {
+      } else if (currentSemester == "1") {
         final docUser =
             FirebaseFirestore.instance.collection('users').doc(user!.uid);
         docUser.update({
-          'semester_3.${selectedItem}': '',
-          'semester_3.${selectedItem2}': '',
-          'semester_3.${selectedItem3}': '',
-          'semester_3.${selectedItem4}': '',
-          'semester_3.${selectedItem5}': '',
-          'semester_3.${selectedItem6}': '',
+          'semester_2.${selectedItem}': '0',
+          'semester_2.${selectedItem2}': '0',
+          'semester_2.${selectedItem3}': '0',
+          'semester_2.${selectedItem4}': '0',
+          'semester_2.${selectedItem5}': '0',
+          'semester_2.${selectedItem6}': '0',
+          'semester_2.${selectedItem7}': '0',
         });
-      } else if (loggedInUser.current_semester == "3") {
+      } else if (currentSemester == "2") {
         final docUser =
             FirebaseFirestore.instance.collection('users').doc(user!.uid);
         docUser.update({
-          'semester_4.${selectedItem}': '',
-          'semester_4.${selectedItem2}': '',
-          'semester_4.${selectedItem3}': '',
-          'semester_4.${selectedItem4}': '',
-          'semester_4.${selectedItem5}': '',
-          'semester_4.${selectedItem6}': '',
+          'semester_3.${selectedItem}': '0',
+          'semester_3.${selectedItem2}': '0',
+          'semester_3.${selectedItem3}': '0',
+          'semester_3.${selectedItem4}': '0',
+          'semester_3.${selectedItem5}': '0',
+          'semester_3.${selectedItem6}': '0',
+          'semester_3.${selectedItem7}': '0',
         });
-      } else if (loggedInUser.current_semester == "4") {
+      } else if (currentSemester == "3") {
         final docUser =
             FirebaseFirestore.instance.collection('users').doc(user!.uid);
         docUser.update({
-          'semester_5.${selectedItem}': '',
-          'semester_5.${selectedItem2}': '',
-          'semester_5.${selectedItem3}': '',
-          'semester_5.${selectedItem4}': '',
-          'semester_5.${selectedItem5}': '',
-          'semester_5.${selectedItem6}': '',
+          'semester_4.${selectedItem}': '0',
+          'semester_4.${selectedItem2}': '0',
+          'semester_4.${selectedItem3}': '0',
+          'semester_4.${selectedItem4}': '0',
+          'semester_4.${selectedItem5}': '0',
+          'semester_4.${selectedItem6}': '0',
+          'semester_4.${selectedItem7}': '0',
         });
-      } else if (loggedInUser.current_semester == "5") {
+      } else if (currentSemester == "4") {
         final docUser =
             FirebaseFirestore.instance.collection('users').doc(user!.uid);
         docUser.update({
-          'semester_6.${selectedItem}': '',
-          'semester_6.${selectedItem2}': '',
-          'semester_6.${selectedItem3}': '',
-          'semester_6.${selectedItem4}': '',
-          'semester_6.${selectedItem5}': '',
-          'semester_6.${selectedItem6}': '',
+          'semester_5.${selectedItem}': '0',
+          'semester_5.${selectedItem2}': '0',
+          'semester_5.${selectedItem3}': '0',
+          'semester_5.${selectedItem4}': '0',
+          'semester_5.${selectedItem5}': '0',
+          'semester_5.${selectedItem6}': '0',
+          'semester_4.${selectedItem7}': '0',
         });
-      } else if (loggedInUser.current_semester == "6") {
+      } else if (currentSemester == "5") {
         final docUser =
             FirebaseFirestore.instance.collection('users').doc(user!.uid);
         docUser.update({
-          'semester_7.${selectedItem}': '',
-          'semester_7.${selectedItem2}': '',
-          'semester_7.${selectedItem3}': '',
-          'semester_7.${selectedItem4}': '',
-          'semester_7.${selectedItem5}': '',
-          'semester_7.${selectedItem6}': '',
+          'semester_6.${selectedItem}': '0',
+          'semester_6.${selectedItem2}': '0',
+          'semester_6.${selectedItem3}': '0',
+          'semester_6.${selectedItem4}': '0',
+          'semester_6.${selectedItem5}': '0',
+          'semester_6.${selectedItem6}': '0',
+          'semester_4.${selectedItem7}': '0',
         });
-      } else if (input == "7") {
+      } else if (currentSemester == "6") {
+        final docUser =
+            FirebaseFirestore.instance.collection('users').doc(user!.uid);
+        docUser.update({
+          'semester_7.${selectedItem}': '0',
+          'semester_7.${selectedItem2}': '0',
+          'semester_7.${selectedItem3}': '0',
+          'semester_7.${selectedItem4}': '0',
+          'semester_7.${selectedItem5}': '0',
+          'semester_7.${selectedItem6}': '0',
+          'semester_4.${selectedItem7}': '0',
+        });
+      } else if (currentSemester == "7") {
         final docUser =
             FirebaseFirestore.instance.collection('users').doc(user!.uid);
         docUser.update({
@@ -562,10 +605,33 @@ class _CheckerState extends State<Checker> {
           'semester_8.${selectedItem4}': '',
           'semester_8.${selectedItem5}': '',
           'semester_8.${selectedItem6}': '',
+          'semester_4.${selectedItem7}': '',
         });
       } else
         return Text(
             "there is probably an error in your database check with your advisor");
+    }
+  }
+
+  _subjectValidator(subject) {
+    if (loggedInUser.current_semester == "1") {
+      {
+        if (double.tryParse(loggedInUser.semester_1?["English 1"])! >= 50) {
+          String newSubject = "English 2";
+          return newSubject;
+        } else {
+          String oldSubject = "English 1";
+          return oldSubject;
+        }
+      }
+    } else if (loggedInUser.current_semester == "1") {
+      if (double.tryParse(loggedInUser.semester_1?["English 1"])! >= 50) {
+        String newSubject = "English 2";
+        return newSubject;
+      } else {
+        String oldSubject = "English 1";
+        return oldSubject;
+      }
     }
   }
 }
