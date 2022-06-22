@@ -37,31 +37,73 @@ class _CheckerState extends State<Checker> {
   }
 
   List<String> items = [
-    'Principles of Accounting',
-    'Principles of Accounting 2',
-    ''
-        'English 3',
     'Data Mining',
+    'semester_1_subject_1',
+    'semester_2_subject_1',
+    'semester_3_subject_1',
+    'semester_4_subject_1',
+    'semester_5_subject_1',
+    'semester_6_subject_1',
   ];
-  String? selectedItem = 'Data Mining';
+  String? selectedItem;
 
-  List<String> items2 = ['DSS'];
-  String? selectedItem2 = 'DSS';
+  List<String> items2 = [
+    'DSS',
+    'semester_1_subject_2',
+    'semester_2_subject_2',
+    'semester_3_subject_2',
+    'semester_4_subject_2',
+    'semester_5_subject_2',
+    'semester_6_subject_2',
+  ];
+  String? selectedItem2;
 
-  List<String> items3 = ['MC'];
-  String? selectedItem3 = 'MC';
+  List<String> items3 = [
+    'MC',
+    'semester_1_subject_3',
+    'semester_2_subject_3',
+    'semester_3_subject_3',
+    'semester_4_subject_3',
+    'semester_5_subject_3',
+    'semester_6_subject_3',
+  ];
+  String? selectedItem3;
 
-  List<String> items4 = ['English'];
-  String? selectedItem4 = 'English';
+  List<String> items4 = [
+    'English',
+    'semester_1_subject_4',
+    'semester_2_subject_4',
+    'semester_3_subject_4',
+    'semester_4_subject_4',
+    'semester_5_subject_4',
+    'semester_6_subject_4',
+  ];
+  String? selectedItem4;
 
-  List<String> items5 = ['GIS'];
-  String? selectedItem5 = 'GIS';
+  List<String> items5 = [
+    'GIS',
+    'semester_1_subject_5',
+    'semester_2_subject_5',
+    'semester_3_subject_5',
+    'semester_4_subject_5',
+    'semester_5_subject_5',
+    'semester_6_subject_5',
+  ];
+  String? selectedItem5;
 
   List<String> items5_failed = ['Software Engineering'];
-  String? selectedItem5_failed = 'Software Engineering';
+  String? selectedItem5_failed;
 
-  List<String> items6 = ['It Project Management'];
-  String? selectedItem6 = 'It Project Management';
+  List<String> items6 = [
+    'It Project Management',
+    'semester_1_subject_6',
+    'semester_2_subject_6',
+    'semester_3_subject_6',
+    'semester_4_subject_6',
+    'semester_5_subject_6',
+    'semester_6_subject_6',
+  ];
+  String? selectedItem6;
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +128,7 @@ class _CheckerState extends State<Checker> {
         ),
       ),
     );
-
+    _selectedItemIndicator(loggedInUser.current_semester);
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -104,6 +146,26 @@ class _CheckerState extends State<Checker> {
                 ),
                 SizedBox(
                   height: 10,
+                ),
+                Text(
+                    style: TextStyle(
+                        color: Constant.color,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
+                    'Hello ${loggedInUser.firstName} Are You Ready For Your Next Semester!'),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                    style: TextStyle(
+                        color: Constant.color,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
+                    'Your Current Semester is Semester ${loggedInUser.current_semester}'),
+                SizedBox(
+                  height: 30,
                 ),
                 Container(
                   height: 55,
@@ -232,7 +294,7 @@ class _CheckerState extends State<Checker> {
                                 .toList(),
                             onChanged: (item) =>
                                 setState(() => selectedItem5 = item),
-                            focusColor: _item5getter(),
+                            // focusColor: _item5getter(),
                           )),
                 SizedBox(height: 5),
                 Container(
@@ -273,7 +335,7 @@ class _CheckerState extends State<Checker> {
                                 return ("Your Code Is Not Correct");
                               }
                               if (value == loggedInUser.semester8code) {
-                                _levelupassigner(loggedInUser.current_semester);
+                                _levelUp(loggedInUser.current_semester);
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -355,7 +417,66 @@ class _CheckerState extends State<Checker> {
     }
   }
 
-  _levelupassigner(input) {
+  _selectedItemIndicator(input) {
+    if (input == null) {
+      return "loading...";
+    } else {
+      if (input == "1") {
+        selectedItem = "semester_2_subject_1";
+        selectedItem2 = "semester_2_subject_2";
+        selectedItem3 = "semester_2_subject_3";
+        selectedItem4 = "semester_2_subject_4";
+        selectedItem5 = "semester_2_subject_5";
+        selectedItem6 = "semester_2_subject_6";
+      } else if (input == "2") {
+        selectedItem = "semester_3_subject_1";
+        selectedItem2 = "semester_3_subject_2";
+        selectedItem3 = "semester_3_subject_3";
+        selectedItem4 = "semester_3_subject_4";
+        selectedItem5 = "semester_3_subject_5";
+        selectedItem6 = "semester_3_subject_6";
+      } else if (loggedInUser.current_semester == "3") {
+        selectedItem = "semester_4_subject_1";
+        selectedItem2 = "semester_4_subject_2";
+        selectedItem3 = "semester_4_subject_3";
+        selectedItem4 = "semester_4_subject_4";
+        selectedItem5 = "semester_4_subject_5";
+        selectedItem6 = "semester_4_subject_6";
+      } else if (loggedInUser.current_semester == "4") {
+        selectedItem = "semester_5_subject_1";
+        selectedItem2 = "semester_5_subject_2";
+        selectedItem3 = "semester_5_subject_3";
+        selectedItem4 = "semester_5_subject_4";
+        selectedItem5 = "semester_5_subject_5";
+        selectedItem6 = "semester_5_subject_6";
+      } else if (loggedInUser.current_semester == "5") {
+        final docUser = selectedItem = "semester_1_subject_1";
+        selectedItem2 = "semester_6_subject_2";
+        selectedItem3 = "semester_6_subject_3";
+        selectedItem4 = "semester_6_subject_4";
+        selectedItem5 = "semester_6_subject_5";
+        selectedItem6 = "semester_6_subject_6";
+      } else if (loggedInUser.current_semester == "6") {
+        selectedItem = "semester_7_subject_1";
+        selectedItem2 = "semester_7_subject_2";
+        selectedItem3 = "semester_7_subject_3";
+        selectedItem4 = "semester_7_subject_4";
+        selectedItem5 = "semester_7_subject_5";
+        selectedItem6 = "semester_7_subject_6";
+      } else if (input == "7") {
+        selectedItem = "semester_8_subject_1";
+        selectedItem2 = "semester_8_subject_2";
+        selectedItem3 = "semester_8_subject_3";
+        selectedItem4 = "semester_8_subject_4";
+        selectedItem5 = "semester_8_subject_5";
+        selectedItem6 = "semester_8_subject_6";
+      } else
+        return Text(
+            "there is probably an error in your database check with your advisor");
+    }
+  }
+
+  _levelUp(input) {
     if (input == null) {
       return "loading...";
     } else {
