@@ -1,5 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:graduationprojectyarb/model/user_model.dart';
 import 'package:graduationprojectyarb/screens/config/storage_service.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -13,6 +16,22 @@ class LevelUp extends StatefulWidget {
 }
 
 class _LevelUpState extends State<LevelUp> {
+  User? user = FirebaseAuth.instance.currentUser;
+  UserModel loggedInUser = UserModel();
+
+  @override
+  void initState() {
+    super.initState();
+    FirebaseFirestore.instance
+        .collection("users")
+        .doc(user!.uid)
+        .get()
+        .then((value) {
+      this.loggedInUser = UserModel.fromMap(value.data());
+      setState(() {});
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final Storage storage = Storage();
@@ -51,7 +70,20 @@ class _LevelUpState extends State<LevelUp> {
               }
               return Container();
             },
-          )
+          ),
+          Text(
+              style:
+                  TextStyle(color: Constant.color, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
+              'Congratulation You Have Successfully Assigned the Following Subjects'),
+          SizedBox(
+            height: 2,
+          ),
+          Text(
+              style: TextStyle(
+                  color: Constant.color, fontWeight: FontWeight.normal),
+              textAlign: TextAlign.center,
+              '${loggedInUser.semester_8}')
         ],
       ),
     );
