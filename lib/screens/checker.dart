@@ -36,7 +36,13 @@ class _CheckerState extends State<Checker> {
     });
   }
 
-  List<String> items = ['Data Mining'];
+  List<String> items = [
+    'Principles of Accounting',
+    'Principles of Accounting 2',
+    ''
+        'English 3',
+    'Data Mining',
+  ];
   String? selectedItem = 'Data Mining';
 
   List<String> items2 = ['DSS'];
@@ -226,7 +232,7 @@ class _CheckerState extends State<Checker> {
                                 .toList(),
                             onChanged: (item) =>
                                 setState(() => selectedItem5 = item),
-                            focusColor: item5getter(),
+                            focusColor: _item5getter(),
                           )),
                 SizedBox(height: 5),
                 Container(
@@ -267,17 +273,7 @@ class _CheckerState extends State<Checker> {
                                 return ("Your Code Is Not Correct");
                               }
                               if (value == loggedInUser.semester8code) {
-                                final docUser = FirebaseFirestore.instance
-                                    .collection('users')
-                                    .doc(user!.uid);
-                                docUser.update({
-                                  'semester_8.${selectedItem}': '',
-                                  'semester_8.${selectedItem2}': '',
-                                  'semester_8.${selectedItem3}': '',
-                                  'semester_8.${selectedItem4}': '',
-                                  'semester_8.${selectedItem5}': '',
-                                  'semester_8.${selectedItem6}': '',
-                                });
+                                _levelupassigner(loggedInUser.current_semester);
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -330,7 +326,7 @@ class _CheckerState extends State<Checker> {
     );
   }
 
-  item5getter() {
+  _item5getter() {
     selectedItem5 = selectedItem5_failed;
   }
 
@@ -343,6 +339,106 @@ class _CheckerState extends State<Checker> {
       } else {
         return false;
       }
+    }
+  }
+
+  _semester8assigning(input) {
+    if (input == null) {
+      return "loading...";
+    } else {
+      if (double.tryParse(loggedInUser.semester_7?['software_engineering'])! >=
+          50) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+
+  _levelupassigner(input) {
+    if (input == null) {
+      return "loading...";
+    } else {
+      if (input == "1") {
+        final docUser =
+            FirebaseFirestore.instance.collection('users').doc(user!.uid);
+        docUser.update({
+          'semester_2.${selectedItem}': '',
+          'semester_2.${selectedItem2}': '',
+          'semester_2.${selectedItem3}': '',
+          'semester_2.${selectedItem4}': '',
+          'semester_2.${selectedItem5}': '',
+          'semester_2.${selectedItem6}': '',
+        });
+      } else if (input == "2") {
+        final docUser =
+            FirebaseFirestore.instance.collection('users').doc(user!.uid);
+        docUser.update({
+          'semester_3.${selectedItem}': '',
+          'semester_3.${selectedItem2}': '',
+          'semester_3.${selectedItem3}': '',
+          'semester_3.${selectedItem4}': '',
+          'semester_3.${selectedItem5}': '',
+          'semester_3.${selectedItem6}': '',
+        });
+      } else if (loggedInUser.current_semester == "3") {
+        final docUser =
+            FirebaseFirestore.instance.collection('users').doc(user!.uid);
+        docUser.update({
+          'semester_4.${selectedItem}': '',
+          'semester_4.${selectedItem2}': '',
+          'semester_4.${selectedItem3}': '',
+          'semester_4.${selectedItem4}': '',
+          'semester_4.${selectedItem5}': '',
+          'semester_4.${selectedItem6}': '',
+        });
+      } else if (loggedInUser.current_semester == "4") {
+        final docUser =
+            FirebaseFirestore.instance.collection('users').doc(user!.uid);
+        docUser.update({
+          'semester_5.${selectedItem}': '',
+          'semester_5.${selectedItem2}': '',
+          'semester_5.${selectedItem3}': '',
+          'semester_5.${selectedItem4}': '',
+          'semester_5.${selectedItem5}': '',
+          'semester_5.${selectedItem6}': '',
+        });
+      } else if (loggedInUser.current_semester == "5") {
+        final docUser =
+            FirebaseFirestore.instance.collection('users').doc(user!.uid);
+        docUser.update({
+          'semester_6.${selectedItem}': '',
+          'semester_6.${selectedItem2}': '',
+          'semester_6.${selectedItem3}': '',
+          'semester_6.${selectedItem4}': '',
+          'semester_6.${selectedItem5}': '',
+          'semester_6.${selectedItem6}': '',
+        });
+      } else if (loggedInUser.current_semester == "6") {
+        final docUser =
+            FirebaseFirestore.instance.collection('users').doc(user!.uid);
+        docUser.update({
+          'semester_7.${selectedItem}': '',
+          'semester_7.${selectedItem2}': '',
+          'semester_7.${selectedItem3}': '',
+          'semester_7.${selectedItem4}': '',
+          'semester_7.${selectedItem5}': '',
+          'semester_7.${selectedItem6}': '',
+        });
+      } else if (input == "7") {
+        final docUser =
+            FirebaseFirestore.instance.collection('users').doc(user!.uid);
+        docUser.update({
+          'semester_8.${selectedItem}': '',
+          'semester_8.${selectedItem2}': '',
+          'semester_8.${selectedItem3}': '',
+          'semester_8.${selectedItem4}': '',
+          'semester_8.${selectedItem5}': '',
+          'semester_8.${selectedItem6}': '',
+        });
+      } else
+        return Text(
+            "there is probably an error in your database check with your advisor");
     }
   }
 }
