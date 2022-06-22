@@ -48,10 +48,32 @@ class _LevelUpState extends State<LevelUp> {
             builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
               if (snapshot.connectionState == ConnectionState.done &&
                   snapshot.hasData) {
-                return Container(
-                  height: MediaQuery.of(context).size.height / 1.3,
-                  child: Image.network(
-                    snapshot.data!,
+                return SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Container(
+                        height: MediaQuery.of(context).size.height / 1.3,
+                        child: Image.network(
+                          snapshot.data!,
+                        ),
+                      ),
+                      Text(
+                          style: TextStyle(
+                              color: Constant.color,
+                              fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.center,
+                          'Congratulation You Have Successfully Assigned the Following Subjects'),
+                      SizedBox(
+                        height: 2,
+                      ),
+                      Text(
+                          style: TextStyle(
+                              color: Constant.color,
+                              fontWeight: FontWeight.normal),
+                          textAlign: TextAlign.center,
+                          ''),
+                      _assignedSubjects(loggedInUser.current_semester)
+                    ],
                   ),
                 );
               }
@@ -60,9 +82,11 @@ class _LevelUpState extends State<LevelUp> {
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      child: CircularProgressIndicator(
-                        color: Constant.color,
+                    Center(
+                      child: Container(
+                        child: CircularProgressIndicator(
+                          color: Constant.color,
+                        ),
                       ),
                     ),
                   ],
@@ -71,21 +95,64 @@ class _LevelUpState extends State<LevelUp> {
               return Container();
             },
           ),
-          Text(
-              style:
-                  TextStyle(color: Constant.color, fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
-              'Congratulation You Have Successfully Assigned the Following Subjects'),
-          SizedBox(
-            height: 2,
-          ),
-          Text(
-              style: TextStyle(
-                  color: Constant.color, fontWeight: FontWeight.normal),
-              textAlign: TextAlign.center,
-              '${loggedInUser.semester_8}')
         ],
       ),
     );
+  }
+
+  _assignedSubjects(input) {
+    if (input == null) {
+      return Container();
+    } else {
+      if (input == "1") {
+        return Text(
+            style:
+                TextStyle(color: Constant.color, fontWeight: FontWeight.normal),
+            textAlign: TextAlign.center,
+            '${loggedInUser.semester_2}');
+      } else if (input == "2") {
+        return Text(
+            style:
+                TextStyle(color: Constant.color, fontWeight: FontWeight.normal),
+            textAlign: TextAlign.center,
+            '${loggedInUser.semester_3}');
+      } else if (input == "3") {
+        return Text(
+            style:
+                TextStyle(color: Constant.color, fontWeight: FontWeight.normal),
+            textAlign: TextAlign.center,
+            '${loggedInUser.semester_4}');
+      } else if (input == "4") {
+        return Text(
+            style:
+                TextStyle(color: Constant.color, fontWeight: FontWeight.normal),
+            textAlign: TextAlign.center,
+            '${loggedInUser.semester_5}');
+      } else if (input == "5") {
+        return Text(
+            style:
+                TextStyle(color: Constant.color, fontWeight: FontWeight.normal),
+            textAlign: TextAlign.center,
+            '${loggedInUser.semester_6}');
+      } else if (input == "6") {
+        return Text(
+            style:
+                TextStyle(color: Constant.color, fontWeight: FontWeight.normal),
+            textAlign: TextAlign.center,
+            '${loggedInUser.semester_7}');
+      } else if (input == "7") {
+        return Text(
+            style:
+                TextStyle(color: Constant.color, fontWeight: FontWeight.normal),
+            textAlign: TextAlign.center,
+            '${loggedInUser.semester_8}');
+      } else if (input == "8") {
+        return Text(
+            style:
+                TextStyle(color: Constant.color, fontWeight: FontWeight.normal),
+            textAlign: TextAlign.center,
+            'error!?');
+      }
+    }
   }
 }
