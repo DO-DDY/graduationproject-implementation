@@ -52,6 +52,16 @@ class _LevelUpState extends State<LevelUp> {
                   return SingleChildScrollView(
                     child: Column(
                       children: [
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                            style: TextStyle(
+                                color: Constant.color,
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center,
+                            'Your are now in Semester ${loggedInUser.current_semester}'),
                         Container(
                           height: MediaQuery.of(context).size.height / 1.3,
                           child: Image.network(
@@ -115,49 +125,49 @@ class _LevelUpState extends State<LevelUp> {
                 TextStyle(color: Constant.color, fontWeight: FontWeight.normal),
             textAlign: TextAlign.center,
             '${loggedInUser.semester_1}');
-      } else if (currentSemester == "1") {
-        return Text(
-            style:
-                TextStyle(color: Constant.color, fontWeight: FontWeight.normal),
-            textAlign: TextAlign.center,
-            '${loggedInUser.semester_2}');
       } else if (currentSemester == "2") {
         return Text(
             style:
                 TextStyle(color: Constant.color, fontWeight: FontWeight.normal),
             textAlign: TextAlign.center,
-            '${loggedInUser.semester_3}');
+            '${loggedInUser.semester_2}');
       } else if (currentSemester == "3") {
         return Text(
             style:
                 TextStyle(color: Constant.color, fontWeight: FontWeight.normal),
             textAlign: TextAlign.center,
-            '${loggedInUser.semester_4}');
+            '${loggedInUser.semester_3}');
       } else if (currentSemester == "4") {
         return Text(
             style:
                 TextStyle(color: Constant.color, fontWeight: FontWeight.normal),
             textAlign: TextAlign.center,
-            '${loggedInUser.semester_5}');
+            '${loggedInUser.semester_4}');
       } else if (currentSemester == "5") {
         return Text(
             style:
                 TextStyle(color: Constant.color, fontWeight: FontWeight.normal),
             textAlign: TextAlign.center,
-            '${loggedInUser.semester_6}');
+            '${loggedInUser.semester_5}');
       } else if (currentSemester == "6") {
         return Text(
             style:
                 TextStyle(color: Constant.color, fontWeight: FontWeight.normal),
             textAlign: TextAlign.center,
-            '${loggedInUser.semester_7}');
+            '${loggedInUser.semester_6}');
       } else if (currentSemester == "7") {
         return Text(
             style:
                 TextStyle(color: Constant.color, fontWeight: FontWeight.normal),
             textAlign: TextAlign.center,
-            '${loggedInUser.semester_8}');
+            '${loggedInUser.semester_7}');
       } else if (currentSemester == "8") {
+        return Text(
+            style:
+                TextStyle(color: Constant.color, fontWeight: FontWeight.normal),
+            textAlign: TextAlign.center,
+            '${loggedInUser.semester_8}');
+      } else if (currentSemester == "9") {
         return Text(
             style:
                 TextStyle(color: Constant.color, fontWeight: FontWeight.normal),

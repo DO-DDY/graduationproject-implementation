@@ -5,6 +5,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:graduationprojectyarb/model/user_model.dart';
+import 'package:graduationprojectyarb/screens/Grades_screen.dart';
 import 'package:graduationprojectyarb/screens/Level_Up.dart';
 
 import '../config/constant.dart';
@@ -49,7 +50,7 @@ class _CheckerState extends State<Checker> {
   String? selectedItem;
 
   List<String> items2 = [
-    'Microeconomics',
+    'Microeconomices',
     'Macroeconomics',
     'Statistics 2',
     'Discrete math',
@@ -439,68 +440,68 @@ class _CheckerState extends State<Checker> {
     } else {
       if (currentSemester == "0") {
         selectedItem = "English 1";
-        selectedItem2 = "semester_1_subject_2";
-        selectedItem3 = "semester_1_subject_3";
-        selectedItem4 = "semester_1_subject_4";
-        selectedItem5 = "semester_1_subject_5";
+        selectedItem2 = "Microeconomices";
+        selectedItem3 = "Math 1";
+        selectedItem4 = "Accounting 1";
+        selectedItem5 = "IT";
         selectedItem6 = "Principle of management";
         selectedItem7 = "Science And technology";
       } else if (currentSemester == "1") {
-        selectedItem = _subjectValidator(selectedItem);
-        selectedItem2 = "semester_2_subject_2";
-        selectedItem3 = "semester_2_subject_3";
-        selectedItem4 = "semester_2_subject_4";
-        selectedItem5 = "semester_2_subject_5";
+        selectedItem = _subjectValidator("English 2");
+        selectedItem2 = "Macroeconomics";
+        selectedItem3 = "Statistics 1";
+        selectedItem4 = "Accounting 2";
+        selectedItem5 = "OB";
         selectedItem6 = "Translation";
         selectedItem7 = "no subject";
       } else if (currentSemester == "2") {
-        selectedItem = "semester_3_subject_1";
-        selectedItem2 = "semester_3_subject_2";
-        selectedItem3 = "semester_3_subject_3";
-        selectedItem4 = "semester_3_subject_4";
-        selectedItem5 = "semester_3_subject_5";
+        selectedItem = "Money and banking";
+        selectedItem2 = "Statistics 2";
+        selectedItem3 = "MIS";
+        selectedItem4 = "Principle of marketing";
+        selectedItem5 = "English 3";
         selectedItem6 = "Operation management";
         selectedItem7 = "Business law";
       } else if (currentSemester == "3") {
-        selectedItem = "semester_4_subject_1";
-        selectedItem2 = "semester_4_subject_2";
-        selectedItem3 = "semester_4_subject_3";
-        selectedItem4 = "semester_4_subject_4";
-        selectedItem5 = "semester_4_subject_5";
+        selectedItem = "Enterprise applications";
+        selectedItem2 = "Discrete math";
+        selectedItem3 = "Programming";
+        selectedItem4 = "Scientific Research";
+        selectedItem5 = "Principle of finance";
         selectedItem6 = "English 4";
         selectedItem7 = "Human resource management";
       } else if (currentSemester == "4") {
-        selectedItem = "semester_5_subject_1";
-        selectedItem2 = "semester_5_subject_2";
-        selectedItem3 = "semester_5_subject_3";
-        selectedItem4 = "semester_5_subject_4";
-        selectedItem5 = "semester_5_subject_5";
+        selectedItem = "Data communication";
+        selectedItem2 = "TQM";
+        selectedItem3 = "OR";
+        selectedItem4 = "English 5";
+        selectedItem5 = "Cost accounting";
         selectedItem6 = "Data structure";
         selectedItem7 = "Data base";
       } else if (currentSemester == "5") {
-        final docUser = selectedItem = "English 1";
-        selectedItem2 = "semester_6_subject_2";
-        selectedItem3 = "semester_6_subject_3";
-        selectedItem4 = "semester_6_subject_4";
+        selectedItem = "HCI";
+        selectedItem2 = "English 6";
+        selectedItem3 = "Business process modeling";
+        selectedItem4 = "International business";
         selectedItem5 = "System analysis";
         selectedItem6 = "E-Commerce";
-        selectedItem7 = "no subject";
+        selectedItem7 = null;
       } else if (currentSemester == "6") {
-        selectedItem = "semester_7_subject_1";
-        selectedItem2 = "semester_7_subject_2";
-        selectedItem3 = "semester_7_subject_3";
-        selectedItem4 = "semester_7_subject_4";
+        selectedItem = "Operating System";
+        selectedItem2 = "AI";
+        selectedItem3 = "Software engineering";
+        selectedItem4 = "Information storage";
         selectedItem5 = "English 7";
         selectedItem6 = "Strategic Management";
         selectedItem7 = "Managerial Accounting";
       } else if (currentSemester == "7") {
-        selectedItem = "semester_8_subject_1";
-        selectedItem2 = "semester_8_subject_2";
-        selectedItem3 = "semester_8_subject_3";
-        selectedItem4 = "semester_8_subject_4";
+        selectedItem = "Dss";
+        selectedItem2 = "English 8";
+        selectedItem3 = "Mobile computing";
+        selectedItem4 = "IT project management";
         selectedItem5 = "Data mining";
         selectedItem6 = "GIS";
-        selectedItem7 = "no subject";
+        selectedItem7 = null;
       } else
         return Text(
             "there is probably an error in your database check with your advisor");
@@ -522,6 +523,7 @@ class _CheckerState extends State<Checker> {
           'semester_1.${selectedItem5}': '0',
           'semester_1.${selectedItem6}': '0',
           'semester_1.${selectedItem7}': '0',
+          'current_semester': '1',
         });
       } else if (currentSemester == "1") {
         final docUser =
@@ -534,6 +536,7 @@ class _CheckerState extends State<Checker> {
           'semester_2.${selectedItem5}': '0',
           'semester_2.${selectedItem6}': '0',
           'semester_2.${selectedItem7}': '0',
+          'current_semester': '2',
         });
       } else if (currentSemester == "2") {
         final docUser =
@@ -546,6 +549,7 @@ class _CheckerState extends State<Checker> {
           'semester_3.${selectedItem5}': '0',
           'semester_3.${selectedItem6}': '0',
           'semester_3.${selectedItem7}': '0',
+          'current_semester': '3',
         });
       } else if (currentSemester == "3") {
         final docUser =
@@ -558,6 +562,7 @@ class _CheckerState extends State<Checker> {
           'semester_4.${selectedItem5}': '0',
           'semester_4.${selectedItem6}': '0',
           'semester_4.${selectedItem7}': '0',
+          'current_semester': '4',
         });
       } else if (currentSemester == "4") {
         final docUser =
@@ -570,6 +575,7 @@ class _CheckerState extends State<Checker> {
           'semester_5.${selectedItem5}': '0',
           'semester_5.${selectedItem6}': '0',
           'semester_4.${selectedItem7}': '0',
+          'current_semester': '5',
         });
       } else if (currentSemester == "5") {
         final docUser =
@@ -582,6 +588,7 @@ class _CheckerState extends State<Checker> {
           'semester_6.${selectedItem5}': '0',
           'semester_6.${selectedItem6}': '0',
           'semester_4.${selectedItem7}': '0',
+          'current_semester': '6',
         });
       } else if (currentSemester == "6") {
         final docUser =
@@ -594,19 +601,28 @@ class _CheckerState extends State<Checker> {
           'semester_7.${selectedItem5}': '0',
           'semester_7.${selectedItem6}': '0',
           'semester_4.${selectedItem7}': '0',
+          'current_semester': '7',
         });
       } else if (currentSemester == "7") {
         final docUser =
             FirebaseFirestore.instance.collection('users').doc(user!.uid);
         docUser.update({
-          'semester_8.${selectedItem}': '',
-          'semester_8.${selectedItem2}': '',
-          'semester_8.${selectedItem3}': '',
-          'semester_8.${selectedItem4}': '',
-          'semester_8.${selectedItem5}': '',
-          'semester_8.${selectedItem6}': '',
-          'semester_4.${selectedItem7}': '',
+          'semester_8.${selectedItem}': '0',
+          'semester_8.${selectedItem2}': '0',
+          'semester_8.${selectedItem3}': '0',
+          'semester_8.${selectedItem4}': '0',
+          'semester_8.${selectedItem5}': '0',
+          'semester_8.${selectedItem6}': '0',
+          'semester_4.${selectedItem7}': '0',
+          'current_semester': '8',
         });
+      } else if (currentSemester == "8") {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => GradesScreen(),
+          ),
+        );
       } else
         return Text(
             "there is probably an error in your database check with your advisor");
@@ -614,9 +630,33 @@ class _CheckerState extends State<Checker> {
   }
 
   _subjectValidator(subject) {
-    if (loggedInUser.current_semester == "1") {
+    if (subject == "English 8") {
       {
-        if (double.tryParse(loggedInUser.semester_1?["English 1"])! >= 50) {
+        if (double.tryParse(loggedInUser.semester_1?["English 7"])! >= 50) {
+          String newSubject = "English 8";
+          return newSubject;
+        } else if (double.tryParse(loggedInUser.semester_1?["English 6"])! >=
+            50) {
+          String newSubject = "English 7";
+          return newSubject;
+        } else if (double.tryParse(loggedInUser.semester_1?["English 5"])! >=
+            50) {
+          String newSubject = "English 6";
+          return newSubject;
+        } else if (double.tryParse(loggedInUser.semester_1?["English 4"])! >=
+            50) {
+          String newSubject = "English 5";
+          return newSubject;
+        } else if (double.tryParse(loggedInUser.semester_1?["English 3"])! >=
+            50) {
+          String newSubject = "English 4";
+          return newSubject;
+        } else if (double.tryParse(loggedInUser.semester_1?["English 2"])! >=
+            50) {
+          String newSubject = "English 3";
+          return newSubject;
+        } else if (double.tryParse(loggedInUser.semester_1?["English 1"])! >=
+            50) {
           String newSubject = "English 2";
           return newSubject;
         } else {
@@ -624,12 +664,49 @@ class _CheckerState extends State<Checker> {
           return oldSubject;
         }
       }
-    } else if (loggedInUser.current_semester == "1") {
-      if (double.tryParse(loggedInUser.semester_1?["English 1"])! >= 50) {
-        String newSubject = "English 2";
+    } else if (subject == "Accounting 2") {
+      if (double.tryParse(loggedInUser.semester_1?["Accounting 1"])! >= 50) {
+        String newSubject = "Accounting 2";
         return newSubject;
       } else {
-        String oldSubject = "English 1";
+        String oldSubject = "Accounting 1";
+        return oldSubject;
+      }
+    } else if (subject == "Macroeconomics") {
+      {
+        if (double.tryParse(loggedInUser.semester_1?["Microeconomics"])! >=
+            50) {
+          String newSubject = "Macroeconomics";
+          return newSubject;
+        } else {
+          String oldSubject = "Microeconomics";
+          return oldSubject;
+        }
+      }
+    } else if (subject == "Discrete math") {
+      if (double.tryParse(loggedInUser.semester_1?["Math 1"])! >= 50) {
+        String newSubject = "Discrete math";
+        return newSubject;
+      } else {
+        String oldSubject = "Math 1";
+        return oldSubject;
+      }
+    } else if (subject == "MIS") {
+      if (double.tryParse(loggedInUser.semester_1?["IT"])! >= 50) {
+        String newSubject = "MIS";
+        return newSubject;
+      } else {
+        String oldSubject = "IT";
+        return oldSubject;
+      }
+    } else if (subject == "International business") {
+      if (double.tryParse(
+              loggedInUser.semester_1?["Principle of management"])! >=
+          50) {
+        String newSubject = "International business";
+        return newSubject;
+      } else {
+        String oldSubject = "Principle of management";
         return oldSubject;
       }
     }
