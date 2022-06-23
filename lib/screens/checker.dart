@@ -411,44 +411,44 @@ class _CheckerState extends State<Checker> {
       return "loading...";
     } else {
       if (currentSemester == "new") {
-        selectedItem = _subjectValidator("English 1");
-        selectedItem2 = _subjectValidator("Microeconomics");
-        selectedItem3 = _subjectValidator("Math 1");
-        selectedItem4 = _subjectValidator("Accounting 1");
-        selectedItem5 = _subjectValidator("IT");
-        selectedItem6 = _subjectValidator("Principle of management");
-        selectedItem7 = _subjectValidator("Science And technology");
+        selectedItem = "English 1";
+        selectedItem2 = "Microeconomics";
+        selectedItem3 = "Math 1";
+        selectedItem4 = "Accounting 1";
+        selectedItem5 = "IT";
+        selectedItem6 = "Principle of management";
+        selectedItem7 = "Science And technology";
       } else if (currentSemester == "1") {
-        selectedItem = _subjectValidator("English 2");
+        selectedItem = "English 2";
         selectedItem2 = _subjectValidator("Macroeconomics");
-        selectedItem3 = _subjectValidator("Statistics 1");
-        selectedItem4 = _subjectValidator("Accounting 2");
-        selectedItem5 = _subjectValidator("OB");
-        selectedItem6 = _subjectValidator("Translation");
+        selectedItem3 = "Statistics 1";
+        selectedItem4 = "Accounting 2";
+        selectedItem5 = "OB";
+        selectedItem6 = "Translation";
       } else if (currentSemester == "2") {
         selectedItem = "Money and banking";
         selectedItem2 = _subjectValidator("Statistics 2");
-        selectedItem3 = _subjectValidator("MIS");
+        selectedItem3 = "MIS";
         selectedItem4 = "Principle of marketing";
-        selectedItem5 = _subjectValidator("English 3");
+        selectedItem5 = "English 3";
         selectedItem6 = "Operation management";
         selectedItem7 = "Business law";
       } else if (currentSemester == "3") {
-        selectedItem = _subjectValidator("Enterprise applications");
-        selectedItem2 = _subjectValidator("Discrete math");
-        selectedItem3 = _subjectValidator("Programming");
-        selectedItem4 = _subjectValidator("Scientific Research");
+        selectedItem = "Enterprise applications";
+        selectedItem2 = "Discrete math";
+        selectedItem3 = "Programming";
+        selectedItem4 = "Scientific Research";
         selectedItem5 = "Principle of finance";
-        selectedItem6 = _subjectValidator("English 4");
-        selectedItem7 = _subjectValidator("Human resource management");
+        selectedItem6 = "English 4";
+        selectedItem7 = "Human resource management";
       } else if (currentSemester == "4") {
-        selectedItem = _subjectValidator("Data communication");
-        selectedItem2 = _subjectValidator("TQM");
-        selectedItem3 = _subjectValidator("OR");
-        selectedItem4 = _subjectValidator("English 5");
-        selectedItem5 = _subjectValidator("Cost accounting");
-        selectedItem6 = _subjectValidator("Data structure");
-        selectedItem7 = _subjectValidator("Data base");
+        selectedItem = "Data communication";
+        selectedItem2 = "TQM";
+        selectedItem3 = "OR";
+        selectedItem4 = "English 5";
+        selectedItem5 = "Cost accounting";
+        selectedItem6 = "Data structure";
+        selectedItem7 = "Data base";
       } else if (currentSemester == "5") {
         selectedItem = "HCI";
         selectedItem2 = "English 6";
