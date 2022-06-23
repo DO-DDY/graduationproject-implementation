@@ -62,42 +62,49 @@ class _SemesterScreen3State extends State<SemesterScreen3> {
                     rows: [
                       DataRow(cells: [
                         DataCell(Text('Money and banking')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
+                        DataCell(Text(
+                            '${gradeChecker(loggedInUser.semester_3?['Money and banking'])}')),
                         DataCell(Text(
                             '${loggedInUser.semester_3?["Money and banking"]}')),
                       ]),
                       DataRow(cells: [
                         DataCell(Text('Statistics 2')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
+                        DataCell(Text(
+                            '${gradeChecker(loggedInUser.semester_3?['Statistics 2'])}')),
                         DataCell(Text(
                             '${loggedInUser.semester_3?["Statistics 2"]}')),
                       ]),
                       DataRow(cells: [
                         DataCell(Text('MIS')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
+                        DataCell(Text(
+                            '${gradeChecker(loggedInUser.semester_3?['MIS'])}')),
                         DataCell(Text('${loggedInUser.semester_3?["MIS"]}')),
                       ]),
                       DataRow(cells: [
                         DataCell(Text('Principle of marketing')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
+                        DataCell(Text(
+                            '${gradeChecker(loggedInUser.semester_3?['Principle of marketing'])}')),
                         DataCell(Text(
                             '${loggedInUser.semester_3?['Principle of marketing']}')),
                       ]),
                       DataRow(cells: [
                         DataCell(Text('English 3')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
+                        DataCell(Text(
+                            '${gradeChecker(loggedInUser.semester_3?['English 3'])}')),
                         DataCell(
                             Text('${loggedInUser.semester_3?["English 3"]}')),
                       ]),
                       DataRow(cells: [
                         DataCell(Text('Operation management')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
+                        DataCell(Text(
+                            '${gradeChecker(loggedInUser.semester_3?['Operation management'])}')),
                         DataCell(Text(
                             /*'${loggedInUser.}'*/ '${loggedInUser.semester_3?["Operation management"]}')),
                       ]),
                       DataRow(cells: [
                         DataCell(Text('Business law')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
+                        DataCell(Text(
+                            '${gradeChecker(loggedInUser.semester_3?['Business law'])}')),
                         DataCell(Text(
                             /*'${loggedInUser.}'*/ '${loggedInUser.semester_3?["Business law"]}')),
                       ]),
@@ -285,15 +292,15 @@ gradeChecker<Map>(input) {
   if (input == null) {
     return 'loading...';
   } else {
-    if (double.tryParse(input)! < 100 && double.tryParse(input)! > 95) {
+    if (double.tryParse(input)! <= 100 && double.tryParse(input)! >= 95) {
       return "A";
-    } else if (double.tryParse(input)! < 95 && double.tryParse(input)! > 85) {
+    } else if (double.tryParse(input)! < 95 && double.tryParse(input)! >= 85) {
       return "B";
-    } else if (double.tryParse(input)! < 85 && double.tryParse(input)! > 75) {
+    } else if (double.tryParse(input)! < 85 && double.tryParse(input)! >= 75) {
       return "C";
-    } else if (double.tryParse(input)! < 75 && double.tryParse(input)! > 65) {
+    } else if (double.tryParse(input)! < 75 && double.tryParse(input)! >= 65) {
       return "D";
-    } else if (double.tryParse(input)! < 65 && double.tryParse(input)! > 50) {
+    } else if (double.tryParse(input)! < 65 && double.tryParse(input)! >= 50) {
       return "E";
     } else if (double.tryParse(input)! < 50) {
       return "F";

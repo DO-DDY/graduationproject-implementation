@@ -442,13 +442,13 @@ class _CheckerState extends State<Checker> {
         selectedItem6 = _subjectValidator("English 4");
         selectedItem7 = _subjectValidator("Human resource management");
       } else if (currentSemester == "4") {
-        selectedItem = "Data communication";
-        selectedItem2 = "TQM";
-        selectedItem3 = "OR";
-        selectedItem4 = "English 5";
-        selectedItem5 = "Cost accounting";
-        selectedItem6 = "Data structure";
-        selectedItem7 = "Data base";
+        selectedItem = _subjectValidator("Data communication");
+        selectedItem2 = _subjectValidator("TQM");
+        selectedItem3 = _subjectValidator("OR");
+        selectedItem4 = _subjectValidator("English 5");
+        selectedItem5 = _subjectValidator("Cost accounting");
+        selectedItem6 = _subjectValidator("Data structure");
+        selectedItem7 = _subjectValidator("Data base");
       } else if (currentSemester == "5") {
         selectedItem = "HCI";
         selectedItem2 = "English 6";

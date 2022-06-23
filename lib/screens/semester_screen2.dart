@@ -62,36 +62,42 @@ class _SemesterScreen2State extends State<SemesterScreen2> {
                     rows: [
                       DataRow(cells: [
                         DataCell(Text('English 2')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
+                        DataCell(Text(
+                            '${gradeChecker(loggedInUser.semester_2?['English 2'])}')),
                         DataCell(
                             Text('${loggedInUser.semester_2?["English 2"]}')),
                       ]),
                       DataRow(cells: [
                         DataCell(Text('Macroeconomics')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
+                        DataCell(Text(
+                            '${gradeChecker(loggedInUser.semester_2?['Macroeconomics'])}')),
                         DataCell(Text(
                             '${loggedInUser.semester_2?["Macroeconomics"]}')),
                       ]),
                       DataRow(cells: [
                         DataCell(Text('Statistics 1')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
+                        DataCell(Text(
+                            '${gradeChecker(loggedInUser.semester_2?['Statistics 1'])}')),
                         DataCell(Text(
                             '${loggedInUser.semester_2?["Statistics 1"]}')),
                       ]),
                       DataRow(cells: [
                         DataCell(Text('Accounting 2')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
+                        DataCell(Text(
+                            '${gradeChecker(loggedInUser.semester_2?['Accounting 2'])}')),
                         DataCell(Text(
                             '${loggedInUser.semester_2?['Accounting 2']}')),
                       ]),
                       DataRow(cells: [
                         DataCell(Text('OB')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
+                        DataCell(Text(
+                            '${gradeChecker(loggedInUser.semester_2?['OB'])}')),
                         DataCell(Text('${loggedInUser.semester_2?["OB"]}')),
                       ]),
                       DataRow(cells: [
                         DataCell(Text('Translation')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
+                        DataCell(Text(
+                            '${gradeChecker(loggedInUser.semester_2?['Translation'])}')),
                         DataCell(Text(
                             /*'${loggedInUser.}'*/ '${loggedInUser.semester_2?["Translation"]}')),
                       ]),
@@ -279,15 +285,15 @@ gradeChecker<Map>(input) {
   if (input == null) {
     return 'loading...';
   } else {
-    if (double.tryParse(input)! < 100 && double.tryParse(input)! > 95) {
+    if (double.tryParse(input)! <= 100 && double.tryParse(input)! >= 95) {
       return "A";
-    } else if (double.tryParse(input)! < 95 && double.tryParse(input)! > 85) {
+    } else if (double.tryParse(input)! < 95 && double.tryParse(input)! >= 85) {
       return "B";
-    } else if (double.tryParse(input)! < 85 && double.tryParse(input)! > 75) {
+    } else if (double.tryParse(input)! < 85 && double.tryParse(input)! >= 75) {
       return "C";
-    } else if (double.tryParse(input)! < 75 && double.tryParse(input)! > 65) {
+    } else if (double.tryParse(input)! < 75 && double.tryParse(input)! >= 65) {
       return "D";
-    } else if (double.tryParse(input)! < 65 && double.tryParse(input)! > 50) {
+    } else if (double.tryParse(input)! < 65 && double.tryParse(input)! >= 50) {
       return "E";
     } else if (double.tryParse(input)! < 50) {
       return "F";

@@ -293,15 +293,15 @@ gradeChecker<Map>(input) {
   if (input == null) {
     return 'loading...';
   } else {
-    if (double.tryParse(input)! < 100 && double.tryParse(input)! > 95) {
+    if (double.tryParse(input)! <= 100 && double.tryParse(input)! >= 95) {
       return "A";
-    } else if (double.tryParse(input)! < 95 && double.tryParse(input)! > 85) {
+    } else if (double.tryParse(input)! < 95 && double.tryParse(input)! >= 85) {
       return "B";
-    } else if (double.tryParse(input)! < 85 && double.tryParse(input)! > 75) {
+    } else if (double.tryParse(input)! < 85 && double.tryParse(input)! >= 75) {
       return "C";
-    } else if (double.tryParse(input)! < 75 && double.tryParse(input)! > 65) {
+    } else if (double.tryParse(input)! < 75 && double.tryParse(input)! >= 65) {
       return "D";
-    } else if (double.tryParse(input)! < 65 && double.tryParse(input)! > 50) {
+    } else if (double.tryParse(input)! < 65 && double.tryParse(input)! >= 50) {
       return "E";
     } else if (double.tryParse(input)! < 50) {
       return "F";
