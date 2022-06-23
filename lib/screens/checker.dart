@@ -114,13 +114,10 @@ class _CheckerState extends State<Checker> {
 
   List<String> items7 = [
     'Science And technology',
-    'no subject',
     'Business law',
     'Human resource management',
     'Data base',
-    'no subject',
     'Managerial Accounting',
-    'no subject',
   ];
   String? selectedItem7;
 
@@ -312,6 +309,29 @@ class _CheckerState extends State<Checker> {
                     onChanged: (item) => setState(() => selectedItem6 = item),
                   ),
                 ),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  height: 55,
+                  width: MediaQuery.of(context).size.width * 0.90,
+                  child: DropdownButtonFormField<String>(
+                    decoration: InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                        borderSide: BorderSide(width: 3, color: Constant.color),
+                      ),
+                    ),
+                    value: selectedItem7,
+                    items: items7
+                        .map((item) => DropdownMenuItem<String>(
+                              value: item,
+                              child: Text(item, style: TextStyle(fontSize: 12)),
+                            ))
+                        .toList(),
+                    onChanged: (item) => setState(() => selectedItem7 = item),
+                  ),
+                ),
                 SizedBox(height: 20),
                 Container(
                   width: MediaQuery.of(context).size.width * 0.90,
@@ -349,32 +369,6 @@ class _CheckerState extends State<Checker> {
                             height: 10,
                           ),
                           Container(
-                            height: 55,
-                            width: MediaQuery.of(context).size.width * 0.90,
-                            child: DropdownButtonFormField<String>(
-                              decoration: InputDecoration(
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(12),
-                                  borderSide: BorderSide(
-                                      width: 3, color: Constant.color),
-                                ),
-                              ),
-                              value: selectedItem7,
-                              items: items7
-                                  .map((item) => DropdownMenuItem<String>(
-                                        value: item,
-                                        child: Text(item,
-                                            style: TextStyle(fontSize: 12)),
-                                      ))
-                                  .toList(),
-                              onChanged: (item) =>
-                                  setState(() => selectedItem7 = item),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Container(
                             decoration: BoxDecoration(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(50)),
@@ -400,6 +394,9 @@ class _CheckerState extends State<Checker> {
                       ),
                     ),
                   ),
+                ),
+                SizedBox(
+                  height: 40,
                 ),
               ],
             ),
@@ -546,7 +543,7 @@ class _CheckerState extends State<Checker> {
           'semester_5.${selectedItem4}': '0',
           'semester_5.${selectedItem5}': '0',
           'semester_5.${selectedItem6}': '0',
-          'semester_4.${selectedItem7}': '0',
+          'semester_5.${selectedItem7}': '0',
           'current_semester': '5',
         });
       } else if (currentSemester == "5") {
@@ -559,7 +556,7 @@ class _CheckerState extends State<Checker> {
           'semester_6.${selectedItem4}': '0',
           'semester_6.${selectedItem5}': '0',
           'semester_6.${selectedItem6}': '0',
-          'semester_4.${selectedItem7}': '0',
+          'semester_6.${selectedItem7}': '0',
           'current_semester': '6',
         });
       } else if (currentSemester == "6") {
@@ -572,7 +569,7 @@ class _CheckerState extends State<Checker> {
           'semester_7.${selectedItem4}': '0',
           'semester_7.${selectedItem5}': '0',
           'semester_7.${selectedItem6}': '0',
-          'semester_4.${selectedItem7}': '0',
+          'semester_7.${selectedItem7}': '0',
           'current_semester': '7',
         });
       } else if (currentSemester == "7") {
@@ -585,7 +582,7 @@ class _CheckerState extends State<Checker> {
           'semester_8.${selectedItem4}': '0',
           'semester_8.${selectedItem5}': '0',
           'semester_8.${selectedItem6}': '0',
-          'semester_4.${selectedItem7}': '0',
+          'semester_8.${selectedItem7}': '0',
           'current_semester': '8',
         });
       } else if (currentSemester == "8") {

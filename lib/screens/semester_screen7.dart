@@ -61,45 +61,52 @@ class _SemesterScreen7State extends State<SemesterScreen7> {
                     ],
                     rows: [
                       DataRow(cells: [
-                        DataCell(Text('Money and banking')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
+                        DataCell(Text('Operating System')),
                         DataCell(Text(
-                            '${loggedInUser.semester_3?["Money and banking"]}')),
-                      ]),
-                      DataRow(cells: [
-                        DataCell(Text('Statistics 2')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
+                            "${gradeChecker(loggedInUser.semester_7?['Operating System'])}")),
                         DataCell(Text(
-                            '${loggedInUser.semester_3?["Statistics 2"]}')),
+                            '${loggedInUser.semester_7?["Operating System"]}')),
                       ]),
                       DataRow(cells: [
-                        DataCell(Text('MIS')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
-                        DataCell(Text('${loggedInUser.semester_3?["MIS"]}')),
-                      ]),
-                      DataRow(cells: [
-                        DataCell(Text('Principle of marketing')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
+                        DataCell(Text('AI')),
                         DataCell(Text(
-                            '${loggedInUser.semester_3?['Principle of marketing']}')),
+                            "${gradeChecker(loggedInUser.semester_7?['AI'])}")),
+                        DataCell(Text('${loggedInUser.semester_7?["AI"]}')),
                       ]),
                       DataRow(cells: [
-                        DataCell(Text('English 3')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
+                        DataCell(Text('Software engineering')),
+                        DataCell(Text(
+                            "${gradeChecker(loggedInUser.semester_7?['Software engineering'])}")),
+                        DataCell(Text(
+                            '${loggedInUser.semester_7?["Software engineering"]}')),
+                      ]),
+                      DataRow(cells: [
+                        DataCell(Text('Information storage')),
+                        DataCell(Text(
+                            "${gradeChecker(loggedInUser.semester_7?['Information storage'])}")),
+                        DataCell(Text(
+                            '${loggedInUser.semester_7?['Information storage']}')),
+                      ]),
+                      DataRow(cells: [
+                        DataCell(Text('English 7')),
+                        DataCell(Text(
+                            "${gradeChecker(loggedInUser.semester_7?['English 7'])}")),
                         DataCell(
-                            Text('${loggedInUser.semester_3?["English 3"]}')),
+                            Text('${loggedInUser.semester_7?["English 7"]}')),
                       ]),
                       DataRow(cells: [
-                        DataCell(Text('Operation management')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
+                        DataCell(Text('Strategic Management')),
                         DataCell(Text(
-                            /*'${loggedInUser.}'*/ '${loggedInUser.semester_3?["Operation management"]}')),
+                            "${gradeChecker(loggedInUser.semester_7?['Strategic Management'])}")),
+                        DataCell(Text(
+                            /*'${loggedInUser.}'*/ '${loggedInUser.semester_7?["Strategic Management"]}')),
                       ]),
                       DataRow(cells: [
-                        DataCell(Text('Business law')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
+                        DataCell(Text('Managerial Accounting')),
                         DataCell(Text(
-                            /*'${loggedInUser.}'*/ '${loggedInUser.semester_3?["Business law"]}')),
+                            "${gradeChecker(loggedInUser.semester_7?['Managerial Accounting'])}")),
+                        DataCell(Text(
+                            /*'${loggedInUser.}'*/ '${loggedInUser.semester_7?["Managerial Accounting"]}')),
                       ]),
                     ],
                   ),
