@@ -50,7 +50,7 @@ class _CheckerState extends State<Checker> {
   String? selectedItem;
 
   List<String> items2 = [
-    'Microeconomices',
+    'Microeconomics',
     'Macroeconomics',
     'Statistics 2',
     'Discrete math',
@@ -326,10 +326,10 @@ class _CheckerState extends State<Checker> {
                                 return ("Please Enter Your Code");
                               }
                               //verify with the database
-                              if (value != loggedInUser.semester8code) {
+                              if (value != loggedInUser.serialCode) {
                                 return ("Your Code Is Not Correct");
                               }
-                              if (value == loggedInUser.semester8code) {
+                              if (value == loggedInUser.serialCode) {
                                 _levelUp(loggedInUser.current_semester);
                                 Navigator.push(
                                   context,
@@ -413,38 +413,37 @@ class _CheckerState extends State<Checker> {
     if (currentSemester == null) {
       return "loading...";
     } else {
-      if (currentSemester == "0") {
-        selectedItem = "English 1";
-        selectedItem2 = _subjectValidator("Microeconomices");
-        selectedItem3 = "Math 1";
-        selectedItem4 = "Accounting 1";
-        selectedItem5 = "IT";
-        selectedItem6 = "Principle of management";
-        selectedItem7 = "Science And technology";
+      if (currentSemester == "new") {
+        selectedItem = _subjectValidator("English 1");
+        selectedItem2 = _subjectValidator("Microeconomics");
+        selectedItem3 = _subjectValidator("Math 1");
+        selectedItem4 = _subjectValidator("Accounting 1");
+        selectedItem5 = _subjectValidator("IT");
+        selectedItem6 = _subjectValidator("Principle of management");
+        selectedItem7 = _subjectValidator("Science And technology");
       } else if (currentSemester == "1") {
         selectedItem = _subjectValidator("English 2");
-        selectedItem2 = "Macroeconomics";
-        selectedItem3 = "Statistics 1";
-        selectedItem4 = "Accounting 2";
-        selectedItem5 = "OB";
-        selectedItem6 = "Translation";
-        selectedItem7 = null;
+        selectedItem2 = _subjectValidator("Macroeconomics");
+        selectedItem3 = _subjectValidator("Statistics 1");
+        selectedItem4 = _subjectValidator("Accounting 2");
+        selectedItem5 = _subjectValidator("OB");
+        selectedItem6 = _subjectValidator("Translation");
       } else if (currentSemester == "2") {
         selectedItem = "Money and banking";
-        selectedItem2 = "Statistics 2";
-        selectedItem3 = "MIS";
+        selectedItem2 = _subjectValidator("Statistics 2");
+        selectedItem3 = _subjectValidator("MIS");
         selectedItem4 = "Principle of marketing";
-        selectedItem5 = "English 3";
+        selectedItem5 = _subjectValidator("English 3");
         selectedItem6 = "Operation management";
         selectedItem7 = "Business law";
       } else if (currentSemester == "3") {
-        selectedItem = "Enterprise applications";
-        selectedItem2 = "Discrete math";
-        selectedItem3 = "Programming";
-        selectedItem4 = "Scientific Research";
+        selectedItem = _subjectValidator("Enterprise applications");
+        selectedItem2 = _subjectValidator("Discrete math");
+        selectedItem3 = _subjectValidator("Programming");
+        selectedItem4 = _subjectValidator("Scientific Research");
         selectedItem5 = "Principle of finance";
-        selectedItem6 = "English 4";
-        selectedItem7 = "Human resource management";
+        selectedItem6 = _subjectValidator("English 4");
+        selectedItem7 = _subjectValidator("Human resource management");
       } else if (currentSemester == "4") {
         selectedItem = "Data communication";
         selectedItem2 = "TQM";
@@ -460,7 +459,6 @@ class _CheckerState extends State<Checker> {
         selectedItem4 = "International business";
         selectedItem5 = "System analysis";
         selectedItem6 = "E-Commerce";
-        selectedItem7 = null;
       } else if (currentSemester == "6") {
         selectedItem = "Operating System";
         selectedItem2 = "AI";
@@ -476,7 +474,6 @@ class _CheckerState extends State<Checker> {
         selectedItem4 = "IT project management";
         selectedItem5 = "Data mining";
         selectedItem6 = "GIS";
-        selectedItem7 = null;
       } else
         return Text(
             "there is probably an error in your database check with your advisor");
@@ -487,7 +484,7 @@ class _CheckerState extends State<Checker> {
     if (currentSemester == null) {
       return "loading...";
     } else {
-      if (currentSemester == "0") {
+      if (currentSemester == "new") {
         final docUser =
             FirebaseFirestore.instance.collection('users').doc(user!.uid);
         docUser.update({
@@ -598,158 +595,15 @@ class _CheckerState extends State<Checker> {
             builder: (context) => GradesScreen(),
           ),
         );
-      } else
-        return Text(
+      } else {
+        return const Text(
             "there is probably an error in your database check with your advisor");
+      }
     }
   }
 
   _subjectValidator(subject) {
-    if (subject == "English 8") {
-      {
-        if (double.tryParse(loggedInUser.semester_1?["English 7"])! >= 50) {
-          String newSubject = "English 8";
-          return newSubject;
-        } else if (double.tryParse(loggedInUser.semester_1?["English 6"])! >=
-            50) {
-          String newSubject = "English 7";
-          return newSubject;
-        } else if (double.tryParse(loggedInUser.semester_1?["English 5"])! >=
-            50) {
-          String newSubject = "English 6";
-          return newSubject;
-        } else if (double.tryParse(loggedInUser.semester_1?["English 4"])! >=
-            50) {
-          String newSubject = "English 5";
-          return newSubject;
-        } else if (double.tryParse(loggedInUser.semester_1?["English 3"])! >=
-            50) {
-          String newSubject = "English 4";
-          return newSubject;
-        } else if (double.tryParse(loggedInUser.semester_1?["English 2"])! >=
-            50) {
-          String newSubject = "English 3";
-          return newSubject;
-        } else if (double.tryParse(loggedInUser.semester_1?["English 1"])! >=
-            50) {
-          String newSubject = "English 2";
-          return newSubject;
-        } else {
-          String oldSubject = "English 1";
-          return oldSubject;
-        }
-      }
-    } else if (subject == "English 7") {
-      {
-        if (double.tryParse(loggedInUser.semester_1?["English 6"])! >= 50) {
-          String newSubject = "English 7";
-          return newSubject;
-        } else if (double.tryParse(loggedInUser.semester_1?["English 5"])! >=
-            50) {
-          String newSubject = "English 6";
-          return newSubject;
-        } else if (double.tryParse(loggedInUser.semester_1?["English 4"])! >=
-            50) {
-          String newSubject = "English 5";
-          return newSubject;
-        } else if (double.tryParse(loggedInUser.semester_1?["English 3"])! >=
-            50) {
-          String newSubject = "English 4";
-          return newSubject;
-        } else if (double.tryParse(loggedInUser.semester_1?["English 2"])! >=
-            50) {
-          String newSubject = "English 3";
-          return newSubject;
-        } else if (double.tryParse(loggedInUser.semester_1?["English 1"])! >=
-            50) {
-          String newSubject = "English 2";
-          return newSubject;
-        } else {
-          String oldSubject = "English 1";
-          return oldSubject;
-        }
-      }
-    } else if (subject == "English 6") {
-      {
-        if (double.tryParse(loggedInUser.semester_1?["English 5"])! >= 50) {
-          String newSubject = "English 6";
-          return newSubject;
-        } else if (double.tryParse(loggedInUser.semester_1?["English 4"])! >=
-            50) {
-          String newSubject = "English 5";
-          return newSubject;
-        } else if (double.tryParse(loggedInUser.semester_1?["English 3"])! >=
-            50) {
-          String newSubject = "English 4";
-          return newSubject;
-        } else if (double.tryParse(loggedInUser.semester_1?["English 2"])! >=
-            50) {
-          String newSubject = "English 3";
-          return newSubject;
-        } else if (double.tryParse(loggedInUser.semester_1?["English 1"])! >=
-            50) {
-          String newSubject = "English 2";
-          return newSubject;
-        } else {
-          String oldSubject = "English 1";
-          return oldSubject;
-        }
-      }
-    } else if (subject == "English 5") {
-      {
-        if (double.tryParse(loggedInUser.semester_1?["English 4"])! >= 50) {
-          String newSubject = "English 5";
-          return newSubject;
-        } else if (double.tryParse(loggedInUser.semester_1?["English 3"])! >=
-            50) {
-          String newSubject = "English 4";
-          return newSubject;
-        } else if (double.tryParse(loggedInUser.semester_1?["English 2"])! >=
-            50) {
-          String newSubject = "English 3";
-          return newSubject;
-        } else if (double.tryParse(loggedInUser.semester_1?["English 1"])! >=
-            50) {
-          String newSubject = "English 2";
-          return newSubject;
-        } else {
-          String oldSubject = "English 1";
-          return oldSubject;
-        }
-      }
-    } else if (subject == "English 5=4") {
-      {
-        if (double.tryParse(loggedInUser.semester_1?["English 3"])! >= 50) {
-          String newSubject = "English 4";
-          return newSubject;
-        } else if (double.tryParse(loggedInUser.semester_1?["English 2"])! >=
-            50) {
-          String newSubject = "English 3";
-          return newSubject;
-        } else if (double.tryParse(loggedInUser.semester_1?["English 1"])! >=
-            50) {
-          String newSubject = "English 2";
-          return newSubject;
-        } else {
-          String oldSubject = "English 1";
-          return oldSubject;
-        }
-      }
-    } else if (subject == "English 3") {
-      {
-        if (double.tryParse(loggedInUser.semester_1?["English 2"])! >= 50) {
-          String newSubject = "English 3";
-          return newSubject;
-        } else if (double.tryParse(loggedInUser.semester_1?["English 1"])! >=
-            50) {
-          String newSubject = "English 2";
-          return newSubject;
-        } else {
-          String oldSubject = "English 1";
-          return oldSubject;
-        }
-      }
-    } else if (subject == "English 2") {
+    if (subject == "English 2") {
       {
         if (double.tryParse(loggedInUser.semester_1?["English 1"])! >= 50) {
           String newSubject = "English 2";
@@ -759,8 +613,68 @@ class _CheckerState extends State<Checker> {
           return oldSubject;
         }
       }
+    } else if (subject == "English 3") {
+      {
+        if (double.tryParse(loggedInUser.semester_2?["English 2"])! >= 50) {
+          String newSubject = "English 3";
+          return newSubject;
+        } else {
+          String oldSubject = "English 2";
+          return oldSubject;
+        }
+      }
+    } else if (subject == "English 4") {
+      {
+        if (double.tryParse(loggedInUser.semester_3?["English 3"])! >= 50) {
+          String newSubject = "English 4";
+          return newSubject;
+        } else {
+          String oldSubject = "English 3";
+          return oldSubject;
+        }
+      }
+    } else if (subject == "English 5") {
+      {
+        if (double.tryParse(loggedInUser.semester_4?["English 4"])! >= 50) {
+          String newSubject = "English 5";
+          return newSubject;
+        } else {
+          String oldSubject = "English 4";
+          return oldSubject;
+        }
+      }
+    } else if (subject == "English 6") {
+      {
+        if (double.tryParse(loggedInUser.semester_5?["English 5"])! >= 50) {
+          String newSubject = "English 6";
+          return newSubject;
+        } else {
+          String oldSubject = "English 5";
+          return oldSubject;
+        }
+      }
+    } else if (subject == "English 7") {
+      {
+        if (double.tryParse(loggedInUser.semester_6?["English 6"])! >= 50) {
+          String newSubject = "English 7";
+          return newSubject;
+        } else {
+          String oldSubject = "English 6";
+          return oldSubject;
+        }
+      }
+    } else if (subject == "English 8") {
+      {
+        if (double.tryParse(loggedInUser.semester_7?["English 7"])! >= 50) {
+          String newSubject = "English 8";
+          return newSubject;
+        } else {
+          String oldSubject = "English 7";
+          return oldSubject;
+        }
+      }
     } else if (subject == "Cost accounting") {
-      if (double.tryParse(loggedInUser.semester_1?["Accounting 2"])! >= 50) {
+      if (double.tryParse(loggedInUser.semester_2?["Accounting 2"])! >= 50) {
         String newSubject = "Cost accounting";
         return newSubject;
       } else {
@@ -796,7 +710,7 @@ class _CheckerState extends State<Checker> {
         return oldSubject;
       }
     } else if (subject == "Operating System") {
-      if (double.tryParse(loggedInUser.semester_1?["Statistics 1"])! >= 50) {
+      if (double.tryParse(loggedInUser.semester_2?["Statistics 1"])! >= 50) {
         String newSubject = "Operating System";
         return newSubject;
       } else {
@@ -804,11 +718,11 @@ class _CheckerState extends State<Checker> {
         return oldSubject;
       }
     } else if (subject == "Statistics 1") {
-      if (double.tryParse(loggedInUser.semester_1?["Discrete math"])! >= 50) {
+      if (double.tryParse(loggedInUser.semester_1?["Math 1"])! >= 50) {
         String newSubject = "Statistics 1";
         return newSubject;
       } else {
-        String oldSubject = "Discrete math";
+        String oldSubject = "Math 1";
         return oldSubject;
       }
     } else if (subject == "Discrete math") {
@@ -867,14 +781,6 @@ class _CheckerState extends State<Checker> {
         String oldSubject = "IT";
         return oldSubject;
       }
-    } else if (subject == "Enterprise application") {
-      if (double.tryParse(loggedInUser.semester_3?["MIS"])! >= 50) {
-        String newSubject = "Enterprise application";
-        return newSubject;
-      } else {
-        String oldSubject = "MIS";
-        return oldSubject;
-      }
     } else if (subject == "Strategic Management") {
       if (double.tryParse(
               loggedInUser.semester_1?["Principle of management"])! >=
@@ -926,7 +832,8 @@ class _CheckerState extends State<Checker> {
         String oldSubject = "Data structure";
         return oldSubject;
       }
-    } else
+    } else {
       return subject;
+    }
   }
 }

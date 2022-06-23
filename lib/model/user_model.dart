@@ -9,7 +9,7 @@ class UserModel {
   String? data_mining;
   String? gis;
   String? it_project_management;
-  String? semester8code;
+  String? serialCode;
   Map? semester_1;
   Map? semester_2;
   Map? semester_3;
@@ -31,7 +31,7 @@ class UserModel {
       this.gis,
       this.it_project_management,
       this.mc,
-      this.semester8code,
+      this.serialCode,
       this.semester_1,
       this.semester_2,
       this.semester_3,
@@ -55,7 +55,7 @@ class UserModel {
         data_mining: map['data_mining'],
         gis: map['gis'],
         it_project_management: map['it_project_management'],
-        semester8code: map['semester8code'],
+        serialCode: map['serialCode'],
         semester_1: map['semester_1'],
         semester_2: map['semester_2'],
         semester_3: map['semester_3'],

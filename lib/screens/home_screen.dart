@@ -77,11 +77,18 @@ class _HomeScreenState extends State<HomeScreen> {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
+                Text(
+                  "Semester ${loggedInUser.current_semester}",
+                  style: TextStyle(
+                    color: Colors.black54,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
                 SizedBox(
                   height: 15,
                 ),
                 ActionChip(
-                  avatar: CircleAvatar(backgroundColor: Colors.red),
+                  avatar: CircleAvatar(backgroundColor: Constant.color),
                   label: Text("Logout"),
                   onPressed: () {
                     logout(context);

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:graduationprojectyarb/model/user_model.dart';
 import 'package:graduationprojectyarb/screens/config/storage_service.dart';
+import 'package:graduationprojectyarb/screens/home_screen.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../config/constant.dart';
@@ -86,6 +87,32 @@ class _LevelUpState extends State<LevelUp> {
                         _assignedSubjects(loggedInUser.current_semester),
                         SizedBox(
                           height: 20,
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(50)),
+                          ),
+                          height: 50,
+                          width: MediaQuery.of(context).size.width * 0.90,
+                          child: ElevatedButton(
+                            style: ButtonStyle(
+                              shape: MaterialStateProperty.all<
+                                  RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15.0),
+                                ),
+                              ),
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => HomeScreen(),
+                                ),
+                              );
+                            },
+                            child: const Text('Home Screen'),
+                          ),
                         )
                       ],
                     ),
@@ -119,7 +146,13 @@ class _LevelUpState extends State<LevelUp> {
     if (currentSemester == null) {
       return Container();
     } else {
-      if (currentSemester == "0") {
+      if (currentSemester == "new") {
+        return Text(
+            style:
+                TextStyle(color: Constant.color, fontWeight: FontWeight.normal),
+            textAlign: TextAlign.center,
+            '${loggedInUser.semester_1}');
+      } else if (currentSemester == "1") {
         return Text(
             style:
                 TextStyle(color: Constant.color, fontWeight: FontWeight.normal),
