@@ -46,240 +46,243 @@ class _SemesterScreenState extends State<SemesterScreen> {
         title: Text('Semester 1'),
       ),
       body: SafeArea(
-        child: Column(
-          children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                Container(
-                  child: DataTable(
-                    columns: [
-                      DataColumn(label: Text('Subject')),
-                      DataColumn(label: Text('Score')),
-                      DataColumn(label: Text('Grade')),
-                    ],
-                    rows: [
-                      DataRow(cells: [
-                        DataCell(Text('English1')),
-                        DataCell(Text(
-                            '${gradeChecker(loggedInUser.semester_1?['English 1'])}')),
-                        DataCell(
-                            Text('${loggedInUser.semester_1?["English 1"]}')),
-                      ]),
-                      DataRow(cells: [
-                        DataCell(Text('Microeconomics')),
-                        DataCell(Text(
-                            '${gradeChecker(loggedInUser.semester_1?['Microeconomics'])}')),
-                        DataCell(Text(
-                            '${loggedInUser.semester_1?["Microeconomics"]}')),
-                      ]),
-                      DataRow(cells: [
-                        DataCell(Text('Math 1')),
-                        DataCell(Text(
-                            '${gradeChecker(loggedInUser.semester_1?['Math 1'])}')),
-                        DataCell(Text('${loggedInUser.semester_1?["Math 1"]}')),
-                      ]),
-                      DataRow(cells: [
-                        DataCell(Text('Accounting 1')),
-                        DataCell(Text(
-                            '${gradeChecker(loggedInUser.semester_1?['Accounting 1'])}')),
-                        DataCell(Text(
-                            '${loggedInUser.semester_1?['Accounting 1']}')),
-                      ]),
-                      DataRow(cells: [
-                        DataCell(Text('IT')),
-                        DataCell(Text(
-                            '${gradeChecker(loggedInUser.semester_1?['IT'])}')),
-                        DataCell(Text('${loggedInUser.semester_1?["IT"]}')),
-                      ]),
-                      DataRow(cells: [
-                        DataCell(Text('Principle of management')),
-                        DataCell(Text(
-                            '${gradeChecker(loggedInUser.semester_1?['Principle of management'])}')),
-                        DataCell(Text(
-                            /*'${loggedInUser.}'*/ '${loggedInUser.semester_1?["Principle of management"]}')),
-                      ]),
-                      DataRow(cells: [
-                        DataCell(Text('Science and technology')),
-                        DataCell(Text(
-                            '${gradeChecker(loggedInUser.semester_1?['Science And technology'])}')),
-                        DataCell(Text(
-                            /*'${loggedInUser.}'*/ '${loggedInUser.semester_1?["Science And technology"]}')),
-                      ]),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 25,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    ActionChip(
-                      avatar: CircleAvatar(backgroundColor: Constant.color),
-                      padding: EdgeInsets.all(5),
-                      label: Text("semester 1"),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SemesterScreen(),
-                          ),
-                        );
-                      },
-                    ),
-                    SizedBox(
-                      width: 45,
-                    ),
-                    ActionChip(
-                      avatar: CircleAvatar(backgroundColor: Constant.color),
-                      padding: EdgeInsets.all(5),
-                      label: Text("semester 2"),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SemesterScreen2(),
-                          ),
-                        );
-                      },
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ActionChip(
-                      avatar: CircleAvatar(backgroundColor: Constant.color),
-                      padding: EdgeInsets.all(5),
-                      label: Text("semester 3"),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SemesterScreen3(),
-                          ),
-                        );
-                      },
-                    ),
-                    SizedBox(
-                      width: 45,
-                    ),
-                    ActionChip(
-                      avatar: CircleAvatar(backgroundColor: Constant.color),
-                      padding: EdgeInsets.all(5),
-                      label: Text("semester 4"),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SemesterScreen4(),
-                          ),
-                        );
-                      },
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    ActionChip(
-                      avatar: CircleAvatar(backgroundColor: Constant.color),
-                      padding: EdgeInsets.all(5),
-                      label: Text("semester 5"),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SemesterScreen5(),
-                          ),
-                        );
-                      },
-                    ),
-                    SizedBox(
-                      width: 45,
-                    ),
-                    ActionChip(
-                      avatar: CircleAvatar(backgroundColor: Constant.color),
-                      padding: EdgeInsets.all(5),
-                      label: Text("semester 6"),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SemesterScreen6(),
-                          ),
-                        );
-                      },
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ActionChip(
-                      avatar: CircleAvatar(backgroundColor: Constant.color),
-                      padding: EdgeInsets.all(5),
-                      label: Text("semester 7"),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SemesterScreen7(),
-                          ),
-                        );
-                      },
-                    ),
-                    SizedBox(
-                      width: 45,
-                    ),
-                    ActionChip(
-                      avatar: CircleAvatar(backgroundColor: Constant.color),
-                      padding: EdgeInsets.all(5),
-                      label: Text("semester 8"),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => GradesScreen(),
-                          ),
-                        );
-                      },
-                    ),
-                  ],
-                )
-              ],
-            ),
-            SizedBox(
-              height: 40,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(50)),
-              ),
-              height: 50,
-              width: MediaQuery.of(context).size.width * 0.90,
-              child: ElevatedButton(
-                style: ButtonStyle(
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Container(
+                    child: DataTable(
+                      columns: [
+                        DataColumn(label: Text('Subject')),
+                        DataColumn(label: Text('Score')),
+                        DataColumn(label: Text('Grade')),
+                      ],
+                      rows: [
+                        DataRow(cells: [
+                          DataCell(Text('English1')),
+                          DataCell(Text(
+                              '${gradeChecker(loggedInUser.semester_1?['English 1'])}')),
+                          DataCell(
+                              Text('${loggedInUser.semester_1?["English 1"]}')),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text('Microeconomics')),
+                          DataCell(Text(
+                              '${gradeChecker(loggedInUser.semester_1?['Microeconomics'])}')),
+                          DataCell(Text(
+                              '${loggedInUser.semester_1?["Microeconomics"]}')),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text('Math 1')),
+                          DataCell(Text(
+                              '${gradeChecker(loggedInUser.semester_1?['Math 1'])}')),
+                          DataCell(
+                              Text('${loggedInUser.semester_1?["Math 1"]}')),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text('Accounting 1')),
+                          DataCell(Text(
+                              '${gradeChecker(loggedInUser.semester_1?['Accounting 1'])}')),
+                          DataCell(Text(
+                              '${loggedInUser.semester_1?['Accounting 1']}')),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text('IT')),
+                          DataCell(Text(
+                              '${gradeChecker(loggedInUser.semester_1?['IT'])}')),
+                          DataCell(Text('${loggedInUser.semester_1?["IT"]}')),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text('Principle of management')),
+                          DataCell(Text(
+                              '${gradeChecker(loggedInUser.semester_1?['Principle of management'])}')),
+                          DataCell(Text(
+                              /*'${loggedInUser.}'*/ '${loggedInUser.semester_1?["Principle of management"]}')),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Text('Science and technology')),
+                          DataCell(Text(
+                              '${gradeChecker(loggedInUser.semester_1?['Science And technology'])}')),
+                          DataCell(Text(
+                              /*'${loggedInUser.}'*/ '${loggedInUser.semester_1?["Science And technology"]}')),
+                        ]),
+                      ],
                     ),
                   ),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => HomeScreen(),
-                    ),
-                  );
-                },
-                child: const Text('Home Screen'),
+                  SizedBox(
+                    height: 25,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      ActionChip(
+                        avatar: CircleAvatar(backgroundColor: Constant.color),
+                        padding: EdgeInsets.all(5),
+                        label: Text("semester 1"),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SemesterScreen(),
+                            ),
+                          );
+                        },
+                      ),
+                      SizedBox(
+                        width: 45,
+                      ),
+                      ActionChip(
+                        avatar: CircleAvatar(backgroundColor: Constant.color),
+                        padding: EdgeInsets.all(5),
+                        label: Text("semester 2"),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SemesterScreen2(),
+                            ),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ActionChip(
+                        avatar: CircleAvatar(backgroundColor: Constant.color),
+                        padding: EdgeInsets.all(5),
+                        label: Text("semester 3"),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SemesterScreen3(),
+                            ),
+                          );
+                        },
+                      ),
+                      SizedBox(
+                        width: 45,
+                      ),
+                      ActionChip(
+                        avatar: CircleAvatar(backgroundColor: Constant.color),
+                        padding: EdgeInsets.all(5),
+                        label: Text("semester 4"),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SemesterScreen4(),
+                            ),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      ActionChip(
+                        avatar: CircleAvatar(backgroundColor: Constant.color),
+                        padding: EdgeInsets.all(5),
+                        label: Text("semester 5"),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SemesterScreen5(),
+                            ),
+                          );
+                        },
+                      ),
+                      SizedBox(
+                        width: 45,
+                      ),
+                      ActionChip(
+                        avatar: CircleAvatar(backgroundColor: Constant.color),
+                        padding: EdgeInsets.all(5),
+                        label: Text("semester 6"),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SemesterScreen6(),
+                            ),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ActionChip(
+                        avatar: CircleAvatar(backgroundColor: Constant.color),
+                        padding: EdgeInsets.all(5),
+                        label: Text("semester 7"),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SemesterScreen7(),
+                            ),
+                          );
+                        },
+                      ),
+                      SizedBox(
+                        width: 45,
+                      ),
+                      ActionChip(
+                        avatar: CircleAvatar(backgroundColor: Constant.color),
+                        padding: EdgeInsets.all(5),
+                        label: Text("semester 8"),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => GradesScreen(),
+                            ),
+                          );
+                        },
+                      ),
+                    ],
+                  )
+                ],
               ),
-            )
-          ],
+              SizedBox(
+                height: 40,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(50)),
+                ),
+                height: 50,
+                width: MediaQuery.of(context).size.width * 0.90,
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomeScreen(),
+                      ),
+                    );
+                  },
+                  child: const Text('Home Screen'),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
