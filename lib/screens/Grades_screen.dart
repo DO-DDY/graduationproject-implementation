@@ -63,37 +63,43 @@ class _GradesScreenState extends State<GradesScreen> {
                       rows: [
                         DataRow(cells: [
                           DataCell(Text('english')),
+                          DataCell(Text(
+                              '${gradeChecker(loggedInUser.semester_8?['English 8'])}')),
                           DataCell(
-                              Text('${gradeChecker(loggedInUser.english)}')),
-                          DataCell(Text('${loggedInUser.english}')),
+                              Text('${loggedInUser.semester_8?['English 8']}')),
                         ]),
                         DataRow(cells: [
                           DataCell(Text('MC')),
-                          DataCell(Text('${gradeChecker(loggedInUser.mc)}')),
-                          DataCell(Text('${loggedInUser.mc}')),
+                          DataCell(Text(
+                              '${gradeChecker(loggedInUser.semester_8?['Mobile computing'])}')),
+                          DataCell(Text(
+                              '${loggedInUser.semester_8?['Mobile computing']}')),
                         ]),
                         DataRow(cells: [
                           DataCell(Text('DSS')),
-                          DataCell(Text('${gradeChecker(loggedInUser.dss)}')),
-                          DataCell(Text('${loggedInUser.dss}')),
+                          DataCell(Text(
+                              '${gradeChecker(loggedInUser.semester_8?['Dss'])}')),
+                          DataCell(Text('${loggedInUser.semester_8?['Dss']}')),
                         ]),
                         DataRow(cells: [
                           DataCell(Text('GIS')),
-                          DataCell(Text('${gradeChecker(loggedInUser.gis)}')),
-                          DataCell(Text('${loggedInUser.gis}')),
+                          DataCell(Text(
+                              '${gradeChecker(loggedInUser.semester_8?['GIS'])}')),
+                          DataCell(Text('${loggedInUser.semester_8?['GIS']}')),
                         ]),
                         DataRow(cells: [
                           DataCell(Text('IT')),
                           DataCell(Text(
-                              '${gradeChecker(loggedInUser.it_project_management)}')),
-                          DataCell(
-                              Text('${loggedInUser.it_project_management}')),
+                              '${gradeChecker(loggedInUser.semester_8?['IT project management'])}')),
+                          DataCell(Text(
+                              '${loggedInUser.semester_8?['IT project management']}')),
                         ]),
                         DataRow(cells: [
                           DataCell(Text('Data mining')),
                           DataCell(Text(
-                              '${gradeChecker(loggedInUser.data_mining)}')),
-                          DataCell(Text('${loggedInUser.data_mining}')),
+                              '${gradeChecker(loggedInUser.semester_8?['Data mining'])}')),
+                          DataCell(Text(
+                              '${loggedInUser.semester_8?['Data mining']}')),
                         ]),
                       ],
                     ),
@@ -276,7 +282,7 @@ class _GradesScreenState extends State<GradesScreen> {
 }
 
 //Grades Function
-gradeChecker(input) {
+gradeChecker<Map>(input) {
   if (input == null) {
     return 'loading...';
   } else {

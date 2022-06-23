@@ -61,34 +61,45 @@ class _SemesterScreen6State extends State<SemesterScreen6> {
                     ],
                     rows: [
                       DataRow(cells: [
-                        DataCell(Text('Subject')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
-                        DataCell(Text(/*'${loggedInUser.}'*/ '')),
+                        DataCell(Text('E-Commerce')),
+                        DataCell(Text(
+                            '${gradeChecker(loggedInUser.semester_6?['E-Commerce'])}')),
+                        DataCell(
+                            Text('${loggedInUser.semester_6?["E-Commerce"]}')),
                       ]),
                       DataRow(cells: [
-                        DataCell(Text('Subject')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
-                        DataCell(Text(/*'${loggedInUser.}'*/ '')),
+                        DataCell(Text('HCI')),
+                        DataCell(Text(
+                            '${gradeChecker(loggedInUser.semester_6?['HCI'])}')),
+                        DataCell(Text('${loggedInUser.semester_6?["HCI"]}')),
                       ]),
                       DataRow(cells: [
-                        DataCell(Text('Subject')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
-                        DataCell(Text(/*'${loggedInUser.}'*/ '')),
+                        DataCell(Text('English 6')),
+                        DataCell(Text(
+                            '${gradeChecker(loggedInUser.semester_6?['English 6'])}')),
+                        DataCell(
+                            Text('${loggedInUser.semester_6?["English 6"]}')),
                       ]),
                       DataRow(cells: [
-                        DataCell(Text('Subject')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
-                        DataCell(Text(/*'${loggedInUser.}'*/ '')),
+                        DataCell(Text('Business process modeling')),
+                        DataCell(Text(
+                            '${gradeChecker(loggedInUser.semester_6?['Business process modeling'])}')),
+                        DataCell(Text(
+                            '${loggedInUser.semester_6?['Business process modeling']}')),
                       ]),
                       DataRow(cells: [
-                        DataCell(Text('Subject')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
-                        DataCell(Text(/*'${loggedInUser.}'*/ '')),
+                        DataCell(Text('International business')),
+                        DataCell(Text(
+                            '${gradeChecker(loggedInUser.semester_6?['International business'])}')),
+                        DataCell(Text(
+                            '${loggedInUser.semester_6?["International business"]}')),
                       ]),
                       DataRow(cells: [
-                        DataCell(Text('Subject')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
-                        DataCell(Text(/*'${loggedInUser.}'*/ '')),
+                        DataCell(Text('System analysis')),
+                        DataCell(Text(
+                            '${gradeChecker(loggedInUser.semester_6?['System analysis'])}')),
+                        DataCell(Text(
+                            /*'${loggedInUser.}'*/ '${loggedInUser.semester_6?["System analysis"]}')),
                       ]),
                     ],
                   ),
@@ -270,7 +281,7 @@ class _SemesterScreen6State extends State<SemesterScreen6> {
 }
 
 //Grades Function
-gradeChecker(input) {
+gradeChecker<Map>(input) {
   if (input == null) {
     return 'loading...';
   } else {

@@ -61,34 +61,51 @@ class _SemesterScreen5State extends State<SemesterScreen5> {
                     ],
                     rows: [
                       DataRow(cells: [
-                        DataCell(Text('Subject')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
-                        DataCell(Text(/*'${loggedInUser.}'*/ '')),
+                        DataCell(Text('Data communication')),
+                        DataCell(Text(
+                            '${gradeChecker(loggedInUser.semester_5?['Data communication'])}')),
+                        DataCell(Text(
+                            '${loggedInUser.semester_5?["Data communication"]}')),
                       ]),
                       DataRow(cells: [
-                        DataCell(Text('Subject')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
-                        DataCell(Text(/*'${loggedInUser.}'*/ '')),
+                        DataCell(Text('TQM')),
+                        DataCell(Text(
+                            '${gradeChecker(loggedInUser.semester_5?['TQM'])}')),
+                        DataCell(Text('${loggedInUser.semester_5?["TQM"]}')),
                       ]),
                       DataRow(cells: [
-                        DataCell(Text('Subject')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
-                        DataCell(Text(/*'${loggedInUser.}'*/ '')),
+                        DataCell(Text('OR')),
+                        DataCell(Text(
+                            '${gradeChecker(loggedInUser.semester_5?['OR'])}')),
+                        DataCell(Text('${loggedInUser.semester_5?["OR"]}')),
                       ]),
                       DataRow(cells: [
-                        DataCell(Text('Subject')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
-                        DataCell(Text(/*'${loggedInUser.}'*/ '')),
+                        DataCell(Text('English 5')),
+                        DataCell(Text(
+                            '${gradeChecker(loggedInUser.semester_5?['English 5'])}')),
+                        DataCell(
+                            Text('${loggedInUser.semester_5?['English 5']}')),
                       ]),
                       DataRow(cells: [
-                        DataCell(Text('Subject')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
-                        DataCell(Text(/*'${loggedInUser.}'*/ '')),
+                        DataCell(Text('Cost accounting')),
+                        DataCell(Text(
+                            '${gradeChecker(loggedInUser.semester_5?['Cost accounting'])}')),
+                        DataCell(Text(
+                            '${loggedInUser.semester_5?["Cost accounting"]}')),
                       ]),
                       DataRow(cells: [
-                        DataCell(Text('Subject')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
-                        DataCell(Text(/*'${loggedInUser.}'*/ '')),
+                        DataCell(Text('Data structure')),
+                        DataCell(Text(
+                            '${gradeChecker(loggedInUser.semester_5?['Data structure'])}')),
+                        DataCell(Text(
+                            /*'${loggedInUser.}'*/ '${loggedInUser.semester_5?["Data structure"]}')),
+                      ]),
+                      DataRow(cells: [
+                        DataCell(Text('Data base')),
+                        DataCell(Text(
+                            '${gradeChecker(loggedInUser.semester_5?['Data base'])}')),
+                        DataCell(Text(
+                            /*'${loggedInUser.}'*/ '${loggedInUser.semester_5?["Data base"]}')),
                       ]),
                     ],
                   ),
@@ -270,7 +287,7 @@ class _SemesterScreen5State extends State<SemesterScreen5> {
 }
 
 //Grades Function
-gradeChecker(input) {
+gradeChecker<map>(input) {
   if (input == null) {
     return 'loading...';
   } else {

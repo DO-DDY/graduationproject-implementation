@@ -113,7 +113,10 @@ class _LevelUpState extends State<LevelUp> {
                             },
                             child: const Text('Home Screen'),
                           ),
-                        )
+                        ),
+                        SizedBox(
+                          height: 40,
+                        ),
                       ],
                     ),
                   );

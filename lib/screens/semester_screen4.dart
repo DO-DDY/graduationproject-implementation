@@ -61,34 +61,53 @@ class _SemesterScreen4State extends State<SemesterScreen4> {
                     ],
                     rows: [
                       DataRow(cells: [
-                        DataCell(Text('Subject')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
-                        DataCell(Text(/*'${loggedInUser.}'*/ '')),
+                        DataCell(Text('Enterprise applications')),
+                        DataCell(Text(
+                            /*'${gradeChecker(loggedInUser.)}'*/ '${gradeChecker(loggedInUser.semester_4?["Enterprise applications"])}')),
+                        DataCell(Text(
+                            '${loggedInUser.semester_4?["Enterprise applications"]}')),
                       ]),
                       DataRow(cells: [
-                        DataCell(Text('Subject')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
-                        DataCell(Text(/*'${loggedInUser.}'*/ '')),
+                        DataCell(Text('Discrete math')),
+                        DataCell(Text(
+                            /*'${gradeChecker(loggedInUser.)}'*/ '${gradeChecker(loggedInUser.semester_4?["Discrete math"])}')),
+                        DataCell(Text(
+                            '${loggedInUser.semester_4?["Discrete math"]}')),
                       ]),
                       DataRow(cells: [
-                        DataCell(Text('Subject')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
-                        DataCell(Text(/*'${loggedInUser.}'*/ '')),
+                        DataCell(Text('Programming')),
+                        DataCell(Text(
+                            /*'${gradeChecker(loggedInUser.)}'*/ '${gradeChecker(loggedInUser.semester_4?["Programming"])}')),
+                        DataCell(
+                            Text('${loggedInUser.semester_4?["Programming"]}')),
                       ]),
                       DataRow(cells: [
-                        DataCell(Text('Subject')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
-                        DataCell(Text(/*'${loggedInUser.}'*/ '')),
+                        DataCell(Text('Scientific Research')),
+                        DataCell(Text(
+                            /*'${gradeChecker(loggedInUser.)}'*/ '${gradeChecker(loggedInUser.semester_4?["Scientific Research"])}')),
+                        DataCell(Text(
+                            '${loggedInUser.semester_4?['Scientific Research']}')),
                       ]),
                       DataRow(cells: [
-                        DataCell(Text('Subject')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
-                        DataCell(Text(/*'${loggedInUser.}'*/ '')),
+                        DataCell(Text('Principle of finance')),
+                        DataCell(Text(
+                            /*'${gradeChecker(loggedInUser.)}'*/ '${gradeChecker(loggedInUser.semester_4?["Principle of finance"])}')),
+                        DataCell(Text(
+                            '${loggedInUser.semester_4?["Principle of finance"]}')),
                       ]),
                       DataRow(cells: [
-                        DataCell(Text('Subject')),
-                        DataCell(Text(/*'${gradeChecker(loggedInUser.)}'*/ '')),
-                        DataCell(Text(/*'${loggedInUser.}'*/ '')),
+                        DataCell(Text('English 4')),
+                        DataCell(Text(
+                            /*'${gradeChecker(loggedInUser.)}'*/ '${gradeChecker(loggedInUser.semester_4?["English 4"])}')),
+                        DataCell(Text(
+                            /*'${loggedInUser.}'*/ '${loggedInUser.semester_4?["English 4"]}')),
+                      ]),
+                      DataRow(cells: [
+                        DataCell(Text('Human resource management')),
+                        DataCell(Text(
+                            /*'${gradeChecker(loggedInUser.)}'*/ '${gradeChecker(loggedInUser.semester_4?["Human resource management"])}')),
+                        DataCell(Text(
+                            /*'${loggedInUser.}'*/ '${loggedInUser.semester_4?["Human resource management"]}')),
                       ]),
                     ],
                   ),
@@ -270,7 +289,7 @@ class _SemesterScreen4State extends State<SemesterScreen4> {
 }
 
 //Grades Function
-gradeChecker(input) {
+gradeChecker<Map>(input) {
   if (input == null) {
     return 'loading...';
   } else {
