@@ -19,6 +19,7 @@ class UserModel {
   Map? semester_7;
   Map? semester_8;
   String? current_semester;
+  String? phone_number;
 
   UserModel(
       {this.uid,
@@ -40,7 +41,8 @@ class UserModel {
       this.semester_6,
       this.semester_7,
       this.semester_8,
-      this.current_semester});
+      this.current_semester,
+      this.phone_number});
 
   //receiving data from server
   factory UserModel.fromMap(map) {
@@ -64,7 +66,8 @@ class UserModel {
         semester_6: map['semester_6'],
         semester_7: map['semester_7'],
         semester_8: map['semester_8'],
-        current_semester: map['current_semester']);
+        current_semester: map['current_semester'],
+        phone_number: map['phone_number']);
   }
 
   //sending data to server
@@ -83,6 +86,7 @@ class UserModel {
       'semester_7': semester_7,
       'semester_8': semester_8,
       'current_semester': current_semester,
+      'phone_number': phone_number,
     };
   }
 }

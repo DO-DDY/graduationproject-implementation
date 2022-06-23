@@ -269,6 +269,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     userModel.firstName = firstNameEditingController.text;
     userModel.secondName = secondNameEditingController.text;
     userModel.current_semester = "new";
+    userModel.phone_number = "010 237 3366 5";
 
     await firebaseFirestore
         .collection("users")

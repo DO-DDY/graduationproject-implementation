@@ -78,6 +78,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 Text(
+                  "${loggedInUser.phone_number}",
+                  style: TextStyle(
+                    color: Colors.black54,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                Text(
                   "Semester ${loggedInUser.current_semester}",
                   style: TextStyle(
                     color: Colors.black54,
